@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trenton Banks</title>
+<meta name="description" content="Trenton Banks: Cornell student building backend and fintech software. Projects, experience and resume.">
+<meta property="og:title" content="Trenton Banks">
+<meta property="og:description" content="Cornell student building backend and fintech software.">
+<meta property="og:image" content="https://trentonbanksthecoder12.github.io/assets/headshot.jpg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0F1720;
+    --panel: #151F2A;
+    --rule: #243140;
+    --text: #E6EAF0;
+    --muted: #94A1B2;
+    --carnelian: #E8554E;
+    --carnelian-dim: rgba(232, 85, 78, 0.14);
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --measure: 68ch;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--text);
+    font: 400 17px/1.6 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration-color: var(--carnelian); text-underline-offset: 3px; }
+  a:hover { color: var(--carnelian); }
+  :focus-visible { outline: 2px solid var(--carnelian); outline-offset: 3px; border-radius: 2px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* Top bar */
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(15, 23, 32, 0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+  .bar .mark { font: 600 15px var(--mono); text-decoration: none; }
+  .bar nav { display: flex; gap: 22px; font-size: 15px; }
+  .bar nav a { text-decoration: none; color: var(--muted); }
+  .bar nav a:hover { color: var(--text); }
+
+  /* Hero */
+  .hero { padding: 88px 0 72px; }
+  .hero .wrap { display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: center; }
+  .hero h1 {
+    font: 600 clamp(44px, 7.4vw, 84px)/1.0 var(--mono);
+    letter-spacing: -0.03em;
+    margin: 0 0 28px;
+  }
+  .hero h1 .cursor {
+    display: inline-block; width: 0.5em; height: 0.82em;
+    background: var(--carnelian); margin-left: 0.08em; vertical-align: -0.04em;
+    animation: blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .hero h1 .cursor { animation: none; } }
+  .hero .lede { font-size: 21px; line-height: 1.5; max-width: 30em; margin: 0 0 20px; }
+  .hero .sub { color: var(--muted); max-width: 34em; margin: 0 0 32px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 18px; border-radius: 6px;
+    font: 500 15px var(--sans); text-decoration: none;
+    border: 1px solid var(--rule); color: var(--text);
+  }
+  .btn:hover { border-color: var(--muted); color: var(--text); }
+  .btn.primary { background: var(--carnelian); border-color: var(--carnelian); color: #fff; }
+  .btn.primary:hover { background: #F0665F; border-color: #F0665F; color: #fff; }
+  .btn svg { width: 16px; height: 16px; }
+
+  .portrait { position: relative; justify-self: end; width: 100%; max-width: 300px; }
+  .portrait::before {
+    content: ""; position: absolute; inset: 14px -14px -14px 14px;
+    border: 1.5px solid var(--carnelian); border-radius: 4px;
+  }
+  .portrait img { position: relative; display: block; width: 100%; height: auto; border-radius: 4px; }
+
+  /* Sections */
+  section { padding: 72px 0; border-top: 1px solid var(--rule); }
+  .head { display: grid; grid-template-columns: 220px 1fr; gap: 40px; margin-bottom: 40px; align-items: baseline; }
+  h2 { font: 600 28px/1.2 var(--mono); letter-spacing: -0.02em; margin: 0; }
+  .head p { margin: 0; color: var(--muted); max-width: var(--measure); }
+
+  /* Experience ledger */
+  .ledger { list-style: none; margin: 0; padding: 0; }
+  .entry {
+    display: grid; grid-template-columns: 220px 1fr; gap: 40px;
+    padding: 28px 0; border-top: 1px dashed var(--rule);
+  }
+  .entry:first-child { border-top: 0; padding-top: 0; }
+  .when { font: 500 14px/1.5 var(--mono); color: var(--muted); padding-top: 4px; }
+  .when b { display: block; font-weight: 500; color: var(--text); }
+  .entry h3 { font: 600 20px/1.35 var(--sans); margin: 0 0 2px; }
+  .entry .role { color: var(--carnelian); font: 500 15px var(--mono); margin: 0 0 12px; }
+  .entry ul { margin: 0; padding-left: 18px; max-width: var(--measure); }
+  .entry li { margin: 6px 0; }
+  .entry li::marker { color: var(--muted); }
+
+  /* Projects */
+  .featured { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+  .proj { padding: 28px; background: var(--panel); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; }
+  .proj:nth-child(2n) { border-right: 0; }
+  .proj:nth-last-child(-n+2) { border-bottom: 0; }
+  .proj h3 { font: 600 19px var(--mono); margin: 0 0 10px; }
+  .proj h3 a { text-decoration: none; }
+  .proj p { margin: 0 0 16px; color: #C9D1DC; }
+  .proj .stack { margin-top: auto; font: 400 14px var(--mono); color: var(--muted); }
+
+  .more { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 48px; margin-top: 40px; }
+  .more h4 { grid-column: 1 / -1; font: 600 16px var(--sans); margin: 0 0 8px; color: var(--muted); }
+  .more div { padding: 12px 0; border-top: 1px solid var(--rule); }
+  .more a, .more span.name { font: 500 16px var(--mono); }
+  .more p { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+
+  /* Education + skills */
+  .two { display: grid; grid-template-columns: 220px 1fr; gap: 40px; }
+  .edu h3 { font: 600 20px var(--sans); margin: 0 0 4px; }
+  .edu .deg { margin: 0 0 16px; }
+  .edu .meta { font: 500 14px var(--mono); color: var(--muted); }
+  .courses { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .courses li { padding: 5px 11px; border: 1px solid var(--rule); border-radius: 999px; font-size: 14px; color: #C9D1DC; }
+  .skills { margin-top: 40px; display: grid; gap: 14px; }
+  .skills div { display: grid; grid-template-columns: 220px 1fr; gap: 40px; }
+  .skills dt { color: var(--muted); font-size: 15px; }
+  .skills dd { margin: 0; font: 400 15px/1.7 var(--mono); }
+
+  /* Contact */
+  .contact { padding: 88px 0 96px; }
+  .contact h2 { font-size: clamp(30px, 4.4vw, 46px); margin-bottom: 16px; }
+  .contact p { color: var(--muted); max-width: 40em; margin: 0 0 32px; }
+  .links { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 12px 40px; font: 500 16px var(--mono); margin-top: 36px; }
+  footer { border-top: 1px solid var(--rule); padding: 24px 0; color: var(--muted); font-size: 14px; }
+
+  @media (max-width: 860px) {
+    .hero { padding: 48px 0 56px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 44px; }
+    .portrait { justify-self: start; max-width: 240px; order: -1; }
+    .head, .entry, .two, .skills div { grid-template-columns: 1fr; gap: 10px; }
+    .featured { grid-template-columns: 1fr; }
+    .proj { border-right: 0; }
+    .proj:nth-last-child(2) { border-bottom: 1px solid var(--rule); }
+    .more { grid-template-columns: 1fr; }
+    .links { grid-template-columns: 1fr; }
+    .bar nav { gap: 16px; font-size: 14px; }
+    .bar nav .hide-sm { display: none; }
+  }
+  @media (max-width: 380px) { .bar nav a:nth-child(2) { display: none; } }
+
+  /* Live order book */
+  .book-section { background: var(--panel); }
+  .book { display: grid; grid-template-columns: 1.15fr 1fr; gap: 32px; }
+  .ladder { font: 400 15px/1 var(--mono); }
+  .ladder .cols, .ladder .row { display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 0 12px; }
+  .ladder .cols { color: var(--muted); font-size: 13px; padding-bottom: 10px; }
+  .ladder .cols span:not(:first-of-type), .ladder .row span:not(:first-of-type) { text-align: right; }
+  .ladder .row { position: relative; height: 30px; align-items: center; }
+  .ladder .row .depth { position: absolute; top: 3px; bottom: 3px; right: 0; border-radius: 2px; transition: width .25s ease; }
+  .ladder .row span { position: relative; }
+  .ladder .ask .depth { background: var(--carnelian-dim); }
+  .ladder .ask .px { color: var(--carnelian); }
+  .ladder .bid .depth { background: rgba(84, 190, 160, 0.13); }
+  .ladder .bid .px { color: #5CC8A8; }
+  .ladder .row.flash span { color: var(--text); }
+  .ladder .row.flash .depth { background: rgba(230, 234, 240, 0.22); }
+  .ladder .row.empty { color: #3A4757; }
+  .spread { display: flex; justify-content: space-between; padding: 10px 12px; margin: 6px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); font: 500 15px var(--mono); }
+  .spread .last { font-size: 18px; }
+  .spread .last.up { color: #5CC8A8; } .spread .last.down { color: var(--carnelian); }
+  .spread small { color: var(--muted); font-size: 13px; align-self: center; }
+
+  .ticket { border: 1px solid var(--rule); border-radius: 8px; padding: 20px; background: var(--ink); }
+  .seg { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; margin-bottom: 16px; }
+  .seg button { all: unset; cursor: pointer; text-align: center; padding: 9px 0; font: 500 15px var(--sans); color: var(--muted); }
+  .seg button[aria-pressed="true"].buy { background: rgba(84, 190, 160, 0.16); color: #5CC8A8; }
+  .seg button[aria-pressed="true"].sell { background: var(--carnelian-dim); color: var(--carnelian); }
+  .seg button:focus-visible { outline: 2px solid var(--carnelian); outline-offset: -2px; }
+  .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .fields label { display: grid; gap: 6px; font-size: 13px; color: var(--muted); }
+  .fields input { width: 100%; background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; color: var(--text); font: 500 16px var(--mono); padding: 9px 10px; }
+  .fields input:focus { outline: 2px solid var(--carnelian); outline-offset: 0; border-color: transparent; }
+  .ticket .btn { width: 100%; justify-content: center; cursor: pointer; font-family: var(--sans); }
+  .ticket .btn.buy { background: #2F9C7E; border-color: #2F9C7E; color: #fff; }
+  .ticket .btn.buy:hover { background: #38B391; }
+  .ticket .result { min-height: 3em; margin: 12px 0 0; font-size: 14px; color: var(--muted); }
+  .tape { margin-top: 20px; }
+  .tape-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .tape-head h3 { font: 600 15px var(--sans); margin: 0; }
+  .tape-head button { all: unset; cursor: pointer; font-size: 13px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+  .tape-head button:focus-visible { outline: 2px solid var(--carnelian); outline-offset: 2px; }
+  .tape ol { list-style: none; margin: 0; padding: 0; font: 400 14px/1 var(--mono); }
+  .tape li { display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 7px 0; border-top: 1px solid var(--rule); }
+  .tape li span:not(:first-child) { text-align: right; }
+  .tape li.you { color: var(--text); font-weight: 600; }
+  .tape li:not(.you) { color: var(--muted); }
+  .tape .b { color: #5CC8A8; } .tape .s { color: var(--carnelian); }
+  @media (max-width: 860px) { .book { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top">tb</a>
+    <nav aria-label="Sections">
+      <a href="#demo" class="hide-sm">Demo</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education" class="hide-sm">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Trenton<br>Banks<span class="cursor" aria-hidden="true"></span></h1>
+        <p class="lede">I build backend software for finance, where a rounding error or a double charge is a real bug, not a footnote.</p>
+        <p class="sub">Information Science and Economics at Cornell, minoring in Computer Science and Business. This summer I built an AI query tool for Nuveen's fixed income desk. I'm from Chicago and looking for software engineering internships in fintech and trading.</p>
+        <div class="actions">
+          <a class="btn primary" href="Trenton-Banks-Resume.pdf" download>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 2v8m0 0L4.5 6.5M8 10l3.5-3.5M2.5 13.5h11"/></svg>
+            Download resume
+          </a>
+          <a class="btn" href="https://github.com/TrentonBankstheCoder12">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/trenton-banks-4a81062b7/">LinkedIn</a>
+        </div>
+      </div>
+      <figure class="portrait" style="margin:0">
+        <img src="assets/headshot.jpg" width="640" height="800" alt="Trenton Banks smiling, wearing glasses, a black quarter-zip and a patterned tie">
+      </figure>
+    </div>
+  </div>
+
+  <section id="demo" class="book-section" aria-labelledby="demo-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="demo-title">Order book</h2>
+        <p>A live, in-browser version of my <a href="https://github.com/TrentonBankstheCoder12/matching-engine">matching-engine</a>. Orders match on best price first, then on who arrived earlier. Place one yourself and see where it fills.</p>
+      </div>
+      <div class="book">
+        <div class="ladder" aria-label="Order book depth">
+          <div class="cols"><span>Price</span><span>Size</span><span>Orders</span></div>
+          <div id="asks"></div>
+          <div class="spread"><span class="last" id="last">100.00</span><small id="spread">Spread 0.05</small></div>
+          <div id="bids"></div>
+        </div>
+        <div>
+          <form class="ticket" id="ticket" novalidate>
+            <div class="seg" role="group" aria-label="Side">
+              <button type="button" class="buy" aria-pressed="true" data-side="buy">Buy</button>
+              <button type="button" class="sell" aria-pressed="false" data-side="sell">Sell</button>
+            </div>
+            <div class="fields">
+              <label>Limit price<input id="px" inputmode="decimal" value="100.05" autocomplete="off"></label>
+              <label>Quantity<input id="qty" inputmode="numeric" value="25" autocomplete="off"></label>
+            </div>
+            <button class="btn buy" id="submit" type="submit">Place buy order</button>
+            <p class="result" id="result" role="status" aria-live="polite">Your fills show up in bold on the trade tape.</p>
+          </form>
+          <div class="tape">
+            <div class="tape-head"><h3>Trade tape</h3><button type="button" id="pause">Pause market</button></div>
+            <ol id="tape" aria-label="Recent trades"></ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="head">
+        <h2>Experience</h2>
+        <p>Four internships across asset management, systems, transit data and web.</p>
+      </div>
+      <ol class="ledger" reversed>
+        <li class="entry">
+          <div class="when"><b>Jun – Aug 2026</b>Charlotte, NC</div>
+          <div>
+            <h3>Nuveen Investment Management</h3>
+            <p class="role">Software Engineering Intern</p>
+            <ul>
+              <li>Built an agentic natural-language query tool for the fixed income team's dashboard. Analysts ask in plain English and get live trade, volume and position data in under 15 seconds, at 99% uptime, instead of writing SQL by hand.</li>
+              <li>Designed it in Python and FastAPI as a multi-tier pipeline across presentation, application and data layers, with modular services and clear abstractions.</li>
+              <li>Developed a retrieval-augmented text-to-SQL engine on pgvector that turns questions into validated PostgreSQL queries against a read-only replica, with tests for API connectivity, retrieval accuracy and SQL guardrails.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="when"><b>Jul – Aug 2025</b>Ithaca, NY</div>
+          <div>
+            <h3>CSMore, Cornell University</h3>
+            <p class="role">Software Engineering Intern</p>
+            <ul>
+              <li>Designed a working RISC-V processor in Logisim: datapaths, ALUs, control logic and memory units built to the ISA spec.</li>
+              <li>Wrote and debugged C and OCaml across Docker and SSH environments, including an anagram detector built on character-frequency hashmaps.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="when"><b>Jun – Aug 2024</b>Chicago, IL</div>
+          <div>
+            <h3>Chicago Transit Authority</h3>
+            <p class="role">Data Engineering Intern</p>
+            <ul>
+              <li>Analyzed infrastructure workflows with cross-functional engineers, applying lean principles to find inefficiencies and propose process improvements.</li>
+              <li>Supported system design and optimization projects across engineering teams.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="entry">
+          <div class="when"><b>May – Jun 2024</b>Chicago, IL</div>
+          <div>
+            <h3>Dawn Skies Therapeutic Interventions</h3>
+            <p class="role">Software Engineering Intern</p>
+            <ul>
+              <li>Built and deployed the company's responsive website, its first web presence.</li>
+              <li>Created HIPAA-compliant intake forms that cut client onboarding time by 30%.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="head">
+        <h2>Projects</h2>
+        <p>Each repository has tests, CI, and a walkthrough of the design decisions behind it.</p>
+      </div>
+      <div class="featured">
+        <article class="proj">
+          <h3><a href="https://github.com/TrentonBankstheCoder12/ledger-service">ledger-service</a></h3>
+          <p>A double-entry ledger API. Every transaction must balance, retries with an idempotency key never post twice, and money is stored as integer cents.</p>
+          <div class="stack">Python, FastAPI, PostgreSQL</div>
+        </article>
+        <article class="proj">
+          <h3><a href="https://github.com/TrentonBankstheCoder12/matching-engine">matching-engine</a></h3>
+          <p>A limit order book that matches buys and sells by price, then arrival time. Supports market, IOC and fill-or-kill orders, benchmarked at around a million orders per second.</p>
+          <div class="stack">TypeScript, Node.js</div>
+        </article>
+        <article class="proj">
+          <h3><a href="https://github.com/TrentonBankstheCoder12/fraud-detector">fraud-detector</a></h3>
+          <p>Scores card transactions as they stream in using velocity, amount-spike and impossible-travel rules plus an anomaly score, and explains every decision.</p>
+          <div class="stack">Python, FastAPI</div>
+        </article>
+        <article class="proj">
+          <h3><a href="https://github.com/TrentonBankstheCoder12/auth-service">auth-service</a></h3>
+          <p>Login built to a bank's standard: argon2id hashing, rotating refresh tokens that detect reuse, TOTP two-factor and account lockout.</p>
+          <div class="stack">TypeScript, Express</div>
+        </article>
+      </div>
+
+      <div class="more">
+        <h4>More on GitHub</h4>
+        <div><a href="https://github.com/TrentonBankstheCoder12/portfolio-tracker-cli">portfolio-tracker-cli</a><p>FIFO cost basis and realized/unrealized P&amp;L from a trade log.</p></div>
+        <div><a href="https://github.com/TrentonBankstheCoder12/search-engine">search-engine</a><p>Full-text search from scratch with BM25 ranking and phrase queries.</p></div>
+        <div><a href="https://github.com/TrentonBankstheCoder12/budget-dashboard">budget-dashboard</a><p>Personal finance dashboard with CSV import and budget tracking.</p></div>
+        <div><a href="https://github.com/TrentonBankstheCoder12/url-shortener">url-shortener</a><p>Shortener API with caching, click analytics and rate limiting.</p></div>
+        <div><a href="https://github.com/TrentonBankstheCoder12/realtime-chat">realtime-chat</a><p>WebSocket chat with rooms, presence and typing indicators.</p></div>
+        <div><a href="https://github.com/TrentonBankstheCoder12/task-board">task-board</a><p>Kanban board with keyboard-accessible drag and drop and undo.</p></div>
+      </div>
+
+      <div class="more">
+        <h4>Also built</h4>
+        <div><span class="name">N.E.S.T.</span><p>Multi-agent AI system on AWS Bedrock and LangGraph that routes questions to a deterministic engine for real-time financial calculations. FastAPI and React, July 2026.</p></div>
+        <div><span class="name">Pac-Man in Java</span><p>Object-oriented game with ghost pathfinding via Dijkstra's algorithm and a custom priority queue, across 3,000+ lines. April 2025.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="two">
+        <h2>Education</h2>
+        <div class="edu">
+          <h3>Cornell University</h3>
+          <p class="deg">B.A. in Information Science and Economics, minors in Computer Science and Business<br><span class="meta">Expected June 2028, Ithaca, NY</span></p>
+          <ul class="courses" aria-label="Relevant coursework">
+            <li>Data Structures and Algorithms</li>
+            <li>Functional Programming</li>
+            <li>Probability and Statistics</li>
+            <li>Data Science in Python</li>
+            <li>Networks</li>
+            <li>Multivariable Calculus</li>
+            <li>Microeconomics</li>
+            <li>Intermediate Macro Theory</li>
+          </ul>
+        </div>
+      </div>
+      <dl class="skills">
+        <div><dt>Languages</dt><dd>Python, Java, TypeScript, JavaScript, SQL, C, C++, OCaml, Dart</dd></div>
+        <div><dt>Frameworks</dt><dd>FastAPI, React, Node.js, Express, Flutter, NumPy, Pandas</dd></div>
+        <div><dt>Tools</dt><dd>PostgreSQL, Docker, AWS, Git, GitHub Actions, LangGraph</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Let's talk.</h2>
+      <p>I'm looking for software engineering internships in fintech, trading and financial infrastructure. Email is the fastest way to reach me.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:tib24@cornell.edu">Email me</a>
+        <a class="btn" href="Trenton-Banks-Resume.pdf" download>Download resume</a>
+      </div>
+      <div class="links">
+        <a href="mailto:tib24@cornell.edu">tib24@cornell.edu</a>
+        <a href="https://www.linkedin.com/in/trenton-banks-4a81062b7/">LinkedIn</a>
+        <a href="https://github.com/TrentonBankstheCoder12">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(() => {
+  // Prices are integer cents in 5-cent ticks, the same no-floats rule as the real engine.
+  const TICK = 5, DEPTH = 6;
+  const book = { buy: [], sell: [] };   // levels sorted best-first: {price, orders:[{id, qty, mine}]}
+  const tape = [];
+  let seq = 0, last = 10000, prevLast = 10000, flashPrice = null;
+
+  const better = (side, a, b) => side === 'buy' ? a > b : a < b;
+  const fmt = c => (c / 100).toFixed(2);
+
+  function rest(side, price, qty, mine) {
+    const levels = book[side];
+    let i = levels.findIndex(l => l.price === price);
+    if (i === -1) {
+      i = levels.findIndex(l => better(side, price, l.price));
+      if (i === -1) i = levels.length;
+      levels.splice(i, 0, { price, orders: [] });
+    }
+    levels[i].orders.push({ id: ++seq, qty, mine });
+    return levels[i].orders.length;          // place in the queue at this price
+  }
+
+  function submit(side, price, qty, mine) {
+    const contra = book[side === 'buy' ? 'sell' : 'buy'];
+    const fills = [];
+    while (qty > 0 && contra.length) {
+      const level = contra[0];
+      if (side === 'buy' ? level.price > price : level.price < price) break;
+      const head = level.orders[0];
+      const q = Math.min(qty, head.qty);
+      fills.push({ price: level.price, qty: q });
+      qty -= q; head.qty -= q;
+      if (!head.qty) level.orders.shift();
+      if (!level.orders.length) contra.shift();
+    }
+    for (const f of fills) {
+      tape.unshift({ side, price: f.price, qty: f.qty, mine });
+      prevLast = last; last = f.price; flashPrice = f.price;
+    }
+    tape.length = Math.min(tape.length, 8);
+    const queue = qty > 0 ? rest(side, price, qty, mine) : 0;
+    return { fills, left: qty, queue };
+  }
+
+  function seed() {
+    for (let i = 1; i <= 7; i++) {
+      for (let k = 0; k < 1 + (i % 3); k++) {
+        rest('sell', 10000 + i * TICK, 10 + ((i * 17 + k * 11) % 40), false);
+        rest('buy', 10000 - (i - 1) * TICK, 10 + ((i * 13 + k * 7) % 40), false);
+      }
+    }
+  }
+
+  function tick() {
+    const bid = book.buy[0]?.price ?? last - TICK, ask = book.sell[0]?.price ?? last + TICK;
+    const mid = (bid + ask) / 2, side = Math.random() < 0.5 ? 'buy' : 'sell';
+    const pull = (10000 - mid) / 400;                       // drift gently back toward 100.00
+    const qty = 5 * (1 + Math.floor(Math.random() * 8));
+    const sign = side === 'buy' ? 1 : -1;
+    let price;
+    if (Math.random() < 0.35) {
+      // Marketable: reach through the best opposite price by up to one tick.
+      price = (side === 'buy' ? ask : bid) + sign * Math.floor(Math.random() * 2) * TICK;
+    } else {
+      // Passive: join our own side at or behind the best price.
+      price = (side === 'buy' ? bid : ask) - sign * Math.floor(Math.random() * 5) * TICK;
+    }
+    price += Math.round(pull) * TICK;
+    price = Math.max(9000, Math.min(11000, price));
+    submit(side, price, qty, false);
+    for (const s of ['buy', 'sell']) if (book[s].length > 14) book[s].length = 14;
+    render();
+  }
+
+  const $ = id => document.getElementById(id);
+  function rows(levels, side, reverse) {
+    const shown = levels.slice(0, DEPTH);
+    const max = Math.max(1, ...book.buy.slice(0, DEPTH).concat(book.sell.slice(0, DEPTH))
+      .map(l => l.orders.reduce((s, o) => s + o.qty, 0)));
+    const out = shown.map(l => {
+      const size = l.orders.reduce((s, o) => s + o.qty, 0);
+      const mine = l.orders.some(o => o.mine) ? ' *' : '';
+      return `<div class="row ${side === 'buy' ? 'bid' : 'ask'}${l.price === flashPrice ? ' flash' : ''}">` +
+        `<i class="depth" style="width:${(size / max * 100).toFixed(1)}%"></i>` +
+        `<span class="px">${fmt(l.price)}${mine}</span><span>${size}</span><span>${l.orders.length}</span></div>`;
+    });
+    while (out.length < DEPTH) out.push('<div class="row empty"><span>–</span><span></span><span></span></div>');
+    return (reverse ? out.reverse() : out).join('');
+  }
+  function render() {
+    $('asks').innerHTML = rows(book.sell, 'sell', true);
+    $('bids').innerHTML = rows(book.buy, 'buy', false);
+    const el = $('last');
+    el.textContent = fmt(last);
+    el.className = 'last' + (last > prevLast ? ' up' : last < prevLast ? ' down' : '');
+    const b = book.buy[0]?.price, a = book.sell[0]?.price;
+    $('spread').textContent = b != null && a != null ? `Spread ${fmt(a - b)}` : 'One-sided book';
+    $('tape').innerHTML = tape.map(t =>
+      `<li class="${t.mine ? 'you' : ''}"><span class="${t.side === 'buy' ? 'b' : 's'}">${t.mine ? 'You ' : ''}${t.side}</span><span>${fmt(t.price)}</span><span>${t.qty}</span></li>`
+    ).join('') || '<li><span>No trades yet</span><span></span><span></span></li>';
+    flashPrice = null;
+  }
+
+  // Order ticket
+  let side = 'buy';
+  document.querySelectorAll('.seg button').forEach(btn => btn.addEventListener('click', () => {
+    side = btn.dataset.side;
+    document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+    const s = $('submit');
+    s.textContent = `Place ${side} order`;
+    s.className = 'btn ' + (side === 'buy' ? 'buy' : 'primary');
+    const best = side === 'buy' ? book.sell[0]?.price : book.buy[0]?.price;
+    if (best) $('px').value = fmt(best);
+  }));
+  $('ticket').addEventListener('submit', e => {
+    e.preventDefault();
+    const pxCents = Math.round(parseFloat($('px').value) * 100);
+    const qty = Number($('qty').value);
+    const msg = $('result');
+    if (!Number.isFinite(pxCents) || pxCents < 9000 || pxCents > 11000 || pxCents % TICK) {
+      msg.textContent = 'Enter a price between 90.00 and 110.00 in steps of 0.05.'; return;
+    }
+    if (!Number.isInteger(qty) || qty < 1 || qty > 500) {
+      msg.textContent = 'Enter a whole-number quantity from 1 to 500.'; return;
+    }
+    const r = submit(side, pxCents, qty, true);
+    const filled = r.fills.reduce((s, f) => s + f.qty, 0);
+    const avg = filled ? r.fills.reduce((s, f) => s + f.price * f.qty, 0) / filled : 0;
+    const ord = n => n + (['th','st','nd','rd'][n % 100 > 10 && n % 100 < 14 ? 0 : n % 10] || 'th');
+    if (filled && !r.left) msg.textContent = `Filled all ${filled} at an average of ${(avg / 100).toFixed(3)}.`;
+    else if (filled) msg.textContent = `Filled ${filled} at an average of ${(avg / 100).toFixed(3)}. The other ${r.left} rest at ${fmt(pxCents)}, ${ord(r.queue)} in line at that price.`;
+    else msg.textContent = `Nothing crossed, so all ${qty} rest at ${fmt(pxCents)}, ${ord(r.queue)} in line at that price. Marked * in the book.`;
+    render();
+  });
+
+  // Simulated market: runs only while visible, and starts paused for reduced motion.
+  let timer = null, visible = false;
+  let running = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const pauseBtn = $('pause');
+  const sync = () => {
+    const should = running && visible;
+    if (should && !timer) timer = setInterval(tick, 1100);
+    if (!should && timer) { clearInterval(timer); timer = null; }
+    pauseBtn.textContent = running ? 'Pause market' : 'Start market';
+  };
+  pauseBtn.addEventListener('click', () => { running = !running; sync(); });
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; sync(); }).observe($('demo'));
+
+  seed(); render(); sync();
+})();
+</script>
+
+<footer>
+  <div class="wrap">© 2026 Trenton Banks. Hosted on GitHub Pages.</div>
+</footer>
+
+</body>
+</html>
