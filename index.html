@@ -4,252 +4,109 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Trenton Banks</title>
-<meta name="description" content="Trenton Banks is a Cornell student and software engineer building backend and fintech systems.">
-<meta name="theme-color" content="#0E141B">
+<meta name="description" content="Trenton Banks is a Cornell student and software engineer from Chicago.">
+<meta name="theme-color" content="#0A0A0A">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Trenton Banks">
-<meta property="og:description" content="Software engineer focused on the systems that move money.">
+<meta property="og:description" content="Cornell student and software engineer from Chicago.">
 <meta property="og:url" content="https://trentonbanksthecoder12.github.io/">
 <meta property="og:image" content="https://trentonbanksthecoder12.github.io/assets/headshot.jpg">
 <link rel="canonical" href="https://trentonbanksthecoder12.github.io/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Trenton Banks","url":"https://trentonbanksthecoder12.github.io/","email":"mailto:tib24@cornell.edu","jobTitle":"Software Engineer","alumniOf":{"@type":"CollegeOrUniversity","name":"Cornell University"},"sameAs":["https://github.com/TrentonBankstheCoder12","https://www.linkedin.com/in/trenton-banks-4a81062b7/"]}
+{"@context":"https://schema.org","@type":"Person","name":"Trenton Banks","url":"https://trentonbanksthecoder12.github.io/","email":"mailto:tib24@cornell.edu","alumniOf":{"@type":"CollegeOrUniversity","name":"Cornell University"},"sameAs":["https://github.com/TrentonBankstheCoder12","https://www.linkedin.com/in/trenton-banks-4a81062b7/"]}
 </script>
 <style>
 :root {
-  --ink: #0E141B;
-  --surface: #131B24;
-  --raise: #18222D;
-  --line: #222D39;
-  --line-strong: #2F3C4B;
-  --text: #E7ECF2;
-  --soft: #B9C3CF;
-  --muted: #8593A3;
-  --red: #E5534B;
-  --red-wash: rgba(229, 83, 75, 0.13);
-  --green: #4FBF9F;
-  --green-wash: rgba(79, 191, 159, 0.13);
+  --black: #0A0A0A;
+  --raise: #141414;
+  --line: #262626;
+  --line-strong: #3A3A3A;
+  --text: #EDEDED;
+  --soft: #B4B4B4;
+  --muted: #828282;
   --sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  --max: 1120px;
   --gutter: clamp(16px, 4vw, 32px);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { margin: 0; background: var(--ink); color: var(--text); font: 400 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--black); color: var(--text); font: 400 16px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
-p a, .link { text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
-p a:hover, .link:hover { text-decoration-color: var(--red); }
-:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 4px; }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 var(--gutter); }
 
-/* Navigation */
-.nav { position: sticky; top: 0; z-index: 20; background: rgba(14, 20, 27, 0.82); backdrop-filter: saturate(140%) blur(10px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 10; background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color .2s; }
 .nav.scrolled { border-bottom-color: var(--line); }
-.nav .wrap { display: flex; align-items: center; gap: 28px; height: 60px; }
-.brand { font-weight: 600; letter-spacing: -0.01em; margin-right: auto; display: flex; align-items: center; gap: 10px; }
-.brand img { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; object-position: 50% 18%; }
-.nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; font-size: 14.5px; }
+.nav .wrap { display: flex; align-items: center; height: 60px; gap: 28px; }
+.brand { font-weight: 600; margin-right: auto; }
+.nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; font-size: 15px; }
 .nav ul a { color: var(--muted); transition: color .15s; }
-.nav ul a:hover, .nav ul a[aria-current="true"] { color: var(--text); }
-.kbtn { display: inline-flex; align-items: center; gap: 8px; padding: 6px 8px 6px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--muted); font: 400 13.5px var(--sans); cursor: pointer; }
-.kbtn:hover { border-color: var(--line-strong); color: var(--soft); }
-.kbtn kbd { font: 500 12px var(--mono); padding: 2px 6px; border-radius: 5px; background: var(--raise); border: 1px solid var(--line); color: var(--soft); }
+.nav ul a:hover { color: var(--text); }
 
 /* Hero */
-.hero { padding: clamp(56px, 9vw, 112px) 0 clamp(48px, 7vw, 88px); }
-.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: clamp(40px, 6vw, 88px); align-items: center; }
-.status { display: inline-flex; align-items: center; gap: 10px; padding: 6px 12px 6px 10px; border: 1px solid var(--line); border-radius: 999px; font-size: 13.5px; color: var(--soft); margin-bottom: 28px; }
-.status i { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px var(--green-wash); }
-.hero h1 { font-size: clamp(48px, 7.2vw, 88px); line-height: 0.98; font-weight: 600; letter-spacing: -0.045em; margin: 0 0 24px; }
-.hero .lede { font-size: clamp(20px, 2.3vw, 25px); line-height: 1.4; letter-spacing: -0.01em; color: var(--soft); max-width: 25em; margin: 0 0 36px; }
-.hero .lede strong { color: var(--text); font-weight: 500; }
+.hero { padding: clamp(56px, 10vw, 128px) 0 clamp(64px, 9vw, 112px); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: clamp(40px, 7vw, 96px); align-items: center; }
+.hero h1 { font-size: clamp(46px, 7vw, 84px); line-height: 1; font-weight: 600; letter-spacing: -0.045em; margin: 0 0 26px; }
+.hero p { font-size: clamp(19px, 2.1vw, 22px); line-height: 1.5; color: var(--soft); max-width: 30em; margin: 0 0 18px; }
+.hero p + p { font-size: 17px; color: var(--muted); margin-bottom: 36px; }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.btn { display: inline-flex; align-items: center; gap: 9px; height: 44px; padding: 0 18px; border-radius: 10px; font: 500 15px var(--sans); border: 1px solid var(--line-strong); color: var(--text); background: transparent; cursor: pointer; transition: background .15s, border-color .15s; }
+.btn { display: inline-flex; align-items: center; gap: 9px; height: 44px; padding: 0 18px; border-radius: 999px; font: 500 15px var(--sans); border: 1px solid var(--line-strong); color: var(--text); background: transparent; cursor: pointer; transition: background .15s, border-color .15s; }
 .btn:hover { border-color: var(--muted); }
-.btn svg { width: 17px; height: 17px; flex: none; }
-.btn.solid { background: var(--text); color: var(--ink); border-color: var(--text); }
+.btn.solid { background: var(--text); color: var(--black); border-color: var(--text); }
 .btn.solid:hover { background: #fff; }
-.iconlinks { display: flex; gap: 4px; margin-left: 6px; }
-.iconlinks a { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; color: var(--muted); }
-.iconlinks a:hover { color: var(--text); background: var(--surface); }
-.iconlinks svg { width: 20px; height: 20px; }
-
-.photo { position: relative; margin: 0; }
-.photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 18px; }
-.photo figcaption { position: absolute; left: 14px; right: 14px; bottom: 14px; display: flex; justify-content: space-between; gap: 12px; padding: 12px 14px; border-radius: 12px; background: rgba(14, 20, 27, 0.78); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); font-size: 13.5px; }
-.photo figcaption span:first-child { color: var(--muted); }
-.photo figcaption b { font-weight: 500; }
-
-/* Live tape */
-.tape { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
-.tape .wrap { display: flex; align-items: center; gap: 20px; height: 52px; overflow: hidden; }
-.tape .label { flex: none; display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--muted); padding-right: 20px; border-right: 1px solid var(--line); height: 24px; }
-.tape .label a { color: var(--soft); }
-.tape .label i { width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
-.tape .label i.on { animation: pulse 2s ease-in-out infinite; }
-@keyframes pulse { 50% { opacity: 0.3; } }
-.prints { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; white-space: nowrap; font: 400 13.5px var(--mono); font-variant-numeric: tabular-nums; mask-image: linear-gradient(90deg, #000 85%, transparent); }
-.prints li { display: flex; gap: 8px; color: var(--muted); }
-.prints li b { font-weight: 500; }
-.prints .b b { color: var(--green); } .prints .s b { color: var(--red); }
-.prints li.new { animation: enter .45s ease-out; }
-@keyframes enter { from { opacity: 0; transform: translateX(-12px); } }
-@media (prefers-reduced-motion: reduce) { .prints li.new, .tape .label i.on { animation: none; } }
+.btn svg { width: 17px; height: 17px; }
+.photo { margin: 0; }
+.photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 20px; filter: grayscale(100%) contrast(1.05); }
 
 /* Sections */
-section { padding: clamp(72px, 9vw, 112px) 0 0; }
-.sh { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 36px; }
-.sh h2 { font-size: clamp(28px, 3.4vw, 38px); line-height: 1.1; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
-.sh p { margin: 10px 0 0; color: var(--muted); max-width: 52ch; }
-.sh .more { flex: none; font-size: 14.5px; color: var(--muted); }
-.sh .more:hover { color: var(--text); }
+section { padding: clamp(64px, 8vw, 104px) 0 0; }
+.row { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 40px; }
+h2 { font-size: 15px; font-weight: 500; color: var(--muted); margin: 6px 0 0; }
 
-/* Featured work */
-.work { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.work > li { display: grid; grid-template-columns: 280px minmax(0, 1fr) auto; gap: 32px; padding: 30px 0; border-bottom: 1px solid var(--line); align-items: start; }
-.work h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 6px; }
-.work .stack { font-size: 14px; color: var(--muted); }
-.work p { margin: 0 0 14px; color: var(--soft); max-width: 58ch; }
-.facts { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
-.facts li { font-size: 13.5px; padding: 4px 10px; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); color: var(--soft); }
-.work .links { display: flex; flex-direction: column; align-items: end; gap: 8px; font-size: 14.5px; white-space: nowrap; }
-.work .links a { color: var(--muted); display: inline-flex; gap: 6px; align-items: center; }
-.work .links a:hover { color: var(--text); }
-.work .tests { font-size: 13px; color: var(--green); display: inline-flex; gap: 6px; align-items: center; }
-.work .tests svg { width: 14px; height: 14px; }
-
-.others { margin-top: 56px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
-.others h3 { grid-column: 1 / -1; font-size: 15px; font-weight: 500; color: var(--muted); margin: 0 0 4px; }
-.others a, .others div { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
-.others a:hover strong { color: var(--red); }
-.others strong { font-weight: 500; transition: color .15s; }
-.others em { font-style: normal; font-size: 13.5px; color: var(--muted); text-align: right; }
-.others span { grid-column: 1 / -1; font-size: 14.5px; color: var(--muted); }
-
-/* Engine demo */
-.engine { margin-top: 0; }
-.panel { border: 1px solid var(--line); border-radius: 18px; background: var(--surface); overflow: hidden; }
-.panel-top { display: flex; flex-wrap: wrap; gap: 8px 32px; align-items: center; padding: 16px 22px; border-bottom: 1px solid var(--line); font-size: 13.5px; color: var(--muted); }
-.panel-top .sym { color: var(--text); font-weight: 600; font-size: 15px; margin-right: auto; }
-.panel-top b { color: var(--text); font-weight: 500; }
-.panel-body { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
-.ladder { padding: 18px 22px 22px; border-right: 1px solid var(--line); }
-.cols, .row { display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 0 10px; }
-.cols { font-size: 12.5px; color: var(--muted); padding-bottom: 8px; }
-.cols span + span, .row span + span { text-align: right; }
-.row { position: relative; height: 28px; align-items: center; font: 400 14px var(--mono); font-variant-numeric: tabular-nums; }
-.row .bar { position: absolute; top: 3px; bottom: 3px; right: 0; border-radius: 4px; transition: width .3s ease; }
-.row span { position: relative; }
-.ask .bar { background: var(--red-wash); } .ask .px { color: var(--red); }
-.bid .bar { background: var(--green-wash); } .bid .px { color: var(--green); }
-.row.mine .px::after { content: "you"; margin-left: 8px; font: 500 10.5px var(--sans); padding: 1px 6px; border-radius: 4px; background: var(--raise); color: var(--text); vertical-align: 1px; }
-.row.empty { color: var(--line-strong); }
-.mid { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 10px; margin: 6px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.mid .last { font: 500 20px var(--mono); font-variant-numeric: tabular-nums; }
-.mid .last.up { color: var(--green); } .mid .last.down { color: var(--red); }
-.mid small { font-size: 12.5px; color: var(--muted); }
-
-.side { padding: 22px; display: flex; flex-direction: column; gap: 20px; }
-.seg { display: grid; grid-template-columns: 1fr 1fr; padding: 4px; gap: 4px; border-radius: 10px; background: var(--ink); border: 1px solid var(--line); }
-.seg button { all: unset; cursor: pointer; text-align: center; padding: 8px 0; border-radius: 7px; font-size: 14.5px; font-weight: 500; color: var(--muted); }
-.seg button:focus-visible { outline: 2px solid var(--red); }
-.seg button[aria-pressed="true"].buy { background: var(--green-wash); color: var(--green); }
-.seg button[aria-pressed="true"].sell { background: var(--red-wash); color: var(--red); }
-.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.fields label { display: grid; gap: 6px; font-size: 12.5px; color: var(--muted); }
-.fields input { width: 100%; height: 42px; padding: 0 12px; background: var(--ink); border: 1px solid var(--line); border-radius: 9px; color: var(--text); font: 500 15px var(--mono); }
-.fields input:focus { outline: none; border-color: var(--muted); }
-.place { width: 100%; justify-content: center; border: 0; color: #fff; font-weight: 600; }
-.place.buy { background: #2C9A7C; } .place.buy:hover { background: #33AD8B; }
-.place.sell { background: #C9423B; } .place.sell:hover { background: #D94C45; }
-.result { margin: -6px 0 0; font-size: 14px; color: var(--soft); min-height: 44px; }
-.fills h3 { display: flex; justify-content: space-between; font-size: 13.5px; font-weight: 500; color: var(--muted); margin: 0 0 6px; }
-.fills h3 button { all: unset; cursor: pointer; color: var(--soft); }
-.fills h3 button:hover { color: var(--text); }
-.fills h3 button:focus-visible { outline: 2px solid var(--red); border-radius: 4px; }
-.fills ol { list-style: none; margin: 0; padding: 0; font: 400 13.5px var(--mono); font-variant-numeric: tabular-nums; }
-.fills li { display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 6px 0; border-top: 1px solid var(--line); color: var(--muted); }
-.fills li span + span { text-align: right; }
-.fills li.you { color: var(--text); }
-.fills .b { color: var(--green); } .fills .s { color: var(--red); }
-.note { margin: 14px 0 0; font-size: 13.5px; color: var(--muted); }
-
-/* Experience */
 .xp { list-style: none; margin: 0; padding: 0; }
-.xp > li { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 32px; padding: 30px 0; border-top: 1px solid var(--line); }
-.xp .org { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 4px; }
-.xp .meta { font-size: 14px; color: var(--muted); }
-.xp .role { font-weight: 500; margin: 0 0 10px; }
-.xp ul { margin: 0; padding-left: 18px; color: var(--soft); max-width: 64ch; }
+.xp > li { padding: 0 0 36px; margin-bottom: 36px; border-bottom: 1px solid var(--line); }
+.xp > li:last-child { border-bottom: 0; margin-bottom: 0; }
+.xp .top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: baseline; }
+.xp h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.015em; margin: 0; }
+.xp .when { font-size: 14.5px; color: var(--muted); }
+.xp .role { margin: 2px 0 12px; color: var(--soft); }
+.xp ul { margin: 0; padding-left: 18px; color: var(--soft); max-width: 62ch; }
 .xp li li { margin: 6px 0; }
 .xp li li::marker { color: var(--line-strong); }
-.xp .tags { margin-top: 14px; }
 
-/* Education & skills */
-.edu { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 32px; padding-top: 30px; border-top: 1px solid var(--line); }
-.edu h3 { font-size: 18px; font-weight: 600; margin: 0 0 4px; }
-.edu p { margin: 0 0 18px; color: var(--soft); max-width: 64ch; }
-.edu .meta { font-size: 14px; color: var(--muted); }
-.skills { display: grid; gap: 14px; margin: 28px 0 0; }
+.edu h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 2px; }
+.edu .when { font-size: 14.5px; color: var(--muted); margin: 0 0 14px; }
+.edu p { color: var(--soft); max-width: 62ch; margin: 0 0 28px; }
+.skills { display: grid; gap: 12px; margin: 0; padding-top: 28px; border-top: 1px solid var(--line); }
 .skills div { display: grid; grid-template-columns: 120px 1fr; gap: 16px; }
-.skills dt { color: var(--muted); font-size: 14.5px; }
+.skills dt { color: var(--muted); font-size: 15px; }
 .skills dd { margin: 0; color: var(--soft); }
 
-/* Contact */
-.contact { padding-bottom: clamp(72px, 9vw, 112px); }
-.contact .card { border: 1px solid var(--line); border-radius: 18px; padding: clamp(28px, 5vw, 56px); background: radial-gradient(120% 140% at 100% 0%, rgba(229, 83, 75, 0.10), transparent 55%), var(--surface); }
-.contact h2 { font-size: clamp(32px, 4.6vw, 52px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.05; margin: 0 0 14px; }
-.contact p { color: var(--soft); max-width: 46ch; margin: 0 0 32px; font-size: 17px; }
-.copied { font-size: 14px; color: var(--green); min-width: 6em; }
+.contact { padding-bottom: clamp(72px, 9vw, 120px); }
+.contact h2.big { font-size: clamp(34px, 5vw, 56px); line-height: 1.05; font-weight: 600; letter-spacing: -0.04em; color: var(--text); margin: 0 0 16px; }
+.contact p { color: var(--soft); font-size: 18px; max-width: 40ch; margin: 0 0 32px; }
+.contact .links { display: flex; gap: 24px; margin-top: 32px; font-size: 15px; }
+.contact .links a { color: var(--muted); border-bottom: 1px solid var(--line-strong); padding-bottom: 2px; }
+.contact .links a:hover { color: var(--text); border-color: var(--text); }
+.copied { font-size: 14px; color: var(--soft); }
 footer { border-top: 1px solid var(--line); }
-footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 24px; padding-bottom: 24px; font-size: 13.5px; color: var(--muted); }
+footer .wrap { padding-top: 24px; padding-bottom: 24px; font-size: 13.5px; color: var(--muted); }
 
-/* Command palette */
-dialog.pal { width: min(560px, calc(100vw - 32px)); margin: 12vh auto auto; padding: 0; border: 1px solid var(--line-strong); border-radius: 14px; background: var(--raise); color: var(--text); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5); }
-dialog.pal::backdrop { background: rgba(5, 8, 12, 0.6); backdrop-filter: blur(2px); }
-.pal input { width: 100%; height: 54px; padding: 0 18px; background: transparent; border: 0; border-bottom: 1px solid var(--line); color: var(--text); font: 400 16px var(--sans); }
-.pal input:focus { outline: none; }
-.pal ul { list-style: none; margin: 0; padding: 8px; max-height: 50vh; overflow: auto; }
-.pal li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; border-radius: 8px; cursor: pointer; font-size: 15px; }
-.pal li span { color: var(--muted); font-size: 13px; }
-.pal li[aria-selected="true"] { background: var(--line); }
-.pal .empty { color: var(--muted); cursor: default; }
-.pal footer { display: flex; gap: 16px; padding: 10px 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
-.pal kbd { font: 500 11.5px var(--mono); padding: 1px 5px; border-radius: 4px; border: 1px solid var(--line-strong); }
-
-/* Responsive */
-@media (max-width: 920px) {
-  .nav ul { display: none; }
+@media (max-width: 860px) {
   .hero .wrap { grid-template-columns: 1fr; }
-  .photo { max-width: 260px; order: -1; }
-  .photo figcaption { display: none; }
-  .work > li { grid-template-columns: 1fr; gap: 10px; }
-  .work .links { flex-direction: row; align-items: center; gap: 20px; }
-  .others { grid-template-columns: 1fr; }
-  .panel-body { grid-template-columns: 1fr; }
-  .ladder { border-right: 0; border-bottom: 1px solid var(--line); }
-  .xp > li, .edu { grid-template-columns: 1fr; gap: 12px; }
-  .sh { flex-direction: column; align-items: start; }
+  .photo { max-width: 240px; order: -1; }
+  .row { grid-template-columns: 1fr; gap: 20px; }
 }
 @media (max-width: 520px) {
-  .kbtn .label, .kbtn kbd { display: none; }
-  .kbtn { padding: 8px 10px; }
-  .tape .label .long { display: none; }
-  .tape .label { padding-right: 14px; }
+  .nav ul { gap: 18px; font-size: 14.5px; }
+  .nav ul li:nth-child(2) { display: none; }
   .photo { max-width: 200px; }
-  .photo figcaption { display: none; }
-  .panel-top { padding: 14px 16px; gap: 6px 20px; }
-  .ladder, .side { padding: 16px; }
   .skills div { grid-template-columns: 1fr; gap: 2px; }
-  .iconlinks { margin-left: 0; }
 }
 </style>
 </head>
@@ -257,17 +114,12 @@ dialog.pal::backdrop { background: rgba(5, 8, 12, 0.6); backdrop-filter: blur(2p
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><img src="assets/headshot.jpg" alt="" width="26" height="26">Trenton Banks</a>
+    <a class="brand" href="#top">Trenton Banks</a>
     <ul>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#engine">Engine</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="kbtn" id="open-pal" type="button" aria-haspopup="dialog">
-      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>
-      <span class="label">Jump to</span><kbd id="kbd">⌘K</kbd>
-    </button>
   </div>
 </header>
 
@@ -275,465 +127,107 @@ dialog.pal::backdrop { background: rgba(5, 8, 12, 0.6); backdrop-filter: blur(2p
   <div class="hero">
     <div class="wrap">
       <div>
-        <div class="status"><i aria-hidden="true"></i>Seeking software engineering internships in fintech</div>
         <h1>Trenton Banks</h1>
-        <p class="lede">Software engineer focused on <strong>the systems that move money</strong>. Information Science and Economics at Cornell, most recently building an AI query tool for Nuveen's fixed income desk.</p>
+        <p>I'm a software engineer from Chicago, studying Information Science and Economics at Cornell.</p>
+        <p>This past summer I was at Nuveen, building a tool that lets the fixed income team ask questions about their data in plain English. I'm looking for software engineering internships in fintech.</p>
         <div class="cta">
           <a class="btn solid" href="Trenton-Banks-Resume.pdf" download>
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 2.5v7.5m0 0L4.8 6.8M8 10l3.2-3.2M3 13.5h10"/></svg>
             Download resume
           </a>
-          <a class="btn" href="mailto:tib24@cornell.edu">Email me</a>
-          <div class="iconlinks">
-            <a href="https://github.com/TrentonBankstheCoder12" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
-            <a href="https://www.linkedin.com/in/trenton-banks-4a81062b7/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
-          </div>
+          <a class="btn" href="mailto:tib24@cornell.edu">Get in touch</a>
         </div>
       </div>
       <figure class="photo">
         <img src="assets/headshot.jpg" width="640" height="800" alt="Trenton Banks, smiling, in glasses and a black quarter-zip over a shirt and tie">
-        <figcaption><span>Cornell, class of 2028</span><b>Chicago · Ithaca</b></figcaption>
       </figure>
     </div>
   </div>
 
-  <div class="tape" aria-label="Live trades from the matching engine on this page">
-    <div class="wrap">
-      <div class="label"><i id="live-dot" aria-hidden="true"></i><span><span class="long">Live prints from </span><a href="#engine" class="link">my matching engine</a></span></div>
-      <ol class="prints" id="prints" aria-hidden="true"></ol>
-    </div>
-  </div>
-
-  <section id="work">
-    <div class="wrap">
-      <div class="sh">
-        <div>
-          <h2>Selected work</h2>
-          <p>Fintech infrastructure built from first principles. Every repo ships with tests, CI, and a walkthrough of its design decisions.</p>
-        </div>
-        <a class="more" href="https://github.com/TrentonBankstheCoder12?tab=repositories">All repositories on GitHub</a>
-      </div>
-
-      <ol class="work">
-        <li>
-          <div><h3>Ledger Service</h3><div class="stack">Python, FastAPI, PostgreSQL</div></div>
-          <div>
-            <p>A double-entry ledger API. Every transaction must balance, a retried request can never charge twice, and money is stored as integer cents so no rounding error creeps in.</p>
-            <ul class="facts"><li>Idempotency keys</li><li>Balanced-entry invariant</li><li>Overdraft protection</li></ul>
-          </div>
-          <div class="links">
-            <a href="https://github.com/TrentonBankstheCoder12/ledger-service">Code</a>
-            <a href="https://github.com/TrentonBankstheCoder12/ledger-service/blob/main/WALKTHROUGH.md">Walkthrough</a>
-            <span class="tests"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg>13 tests</span>
-          </div>
-        </li>
-        <li>
-          <div><h3>Matching Engine</h3><div class="stack">TypeScript, Node.js</div></div>
-          <div>
-            <p>A limit order book that matches on best price, then arrival time. It supports market, IOC, fill-or-kill and good-til-cancelled orders, and it powers the live demo on this page.</p>
-            <ul class="facts"><li>Price-time priority</li><li>O(1) cancels</li><li>~1M orders/sec benchmark</li></ul>
-          </div>
-          <div class="links">
-            <a href="https://github.com/TrentonBankstheCoder12/matching-engine">Code</a>
-            <a href="#engine">Live demo</a>
-            <span class="tests"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg>19 tests</span>
-          </div>
-        </li>
-        <li>
-          <div><h3>Fraud Detector</h3><div class="stack">Python, FastAPI</div></div>
-          <div>
-            <p>Scores card transactions as they stream in against each card's own history, combining explainable rules with an anomaly score, and returns approve, review or decline with reasons.</p>
-            <ul class="facts"><li>Velocity and impossible-travel rules</li><li>86% recall on synthetic fraud</li><li>Evaluation harness</li></ul>
-          </div>
-          <div class="links">
-            <a href="https://github.com/TrentonBankstheCoder12/fraud-detector">Code</a>
-            <a href="https://github.com/TrentonBankstheCoder12/fraud-detector/blob/main/WALKTHROUGH.md">Walkthrough</a>
-            <span class="tests"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg>47 tests</span>
-          </div>
-        </li>
-        <li>
-          <div><h3>Auth Service</h3><div class="stack">TypeScript, Express</div></div>
-          <div>
-            <p>Authentication built to a bank's standard: argon2id password hashing, short-lived access tokens, and refresh tokens that revoke the whole session if one is ever reused.</p>
-            <ul class="facts"><li>TOTP two-factor (RFC 6238)</li><li>Refresh-token reuse detection</li><li>Account lockout</li></ul>
-          </div>
-          <div class="links">
-            <a href="https://github.com/TrentonBankstheCoder12/auth-service">Code</a>
-            <a href="https://github.com/TrentonBankstheCoder12/auth-service/blob/main/WALKTHROUGH.md">Walkthrough</a>
-            <span class="tests"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg>52 tests</span>
-          </div>
-        </li>
-      </ol>
-
-      <div class="others">
-        <h3>More projects</h3>
-        <a href="https://github.com/TrentonBankstheCoder12/portfolio-tracker-cli"><strong>Portfolio Tracker</strong><em>Python CLI</em><span>FIFO cost basis and realized/unrealized P&amp;L from a trade log.</span></a>
-        <a href="/budget-dashboard/"><strong>Budget Dashboard</strong><em>React, live demo</em><span>Imports bank CSVs, categorizes spending, tracks monthly budgets.</span></a>
-        <a href="https://github.com/TrentonBankstheCoder12/search-engine"><strong>Search Engine</strong><em>Python</em><span>Full-text search from scratch: Porter stemmer, inverted index, BM25.</span></a>
-        <a href="https://github.com/TrentonBankstheCoder12/url-shortener"><strong>URL Shortener</strong><em>FastAPI</em><span>Base62 codes, LRU caching, click analytics and rate limiting.</span></a>
-        <a href="https://github.com/TrentonBankstheCoder12/realtime-chat"><strong>Realtime Chat</strong><em>WebSockets</em><span>Rooms, presence, typing indicators and per-connection rate limits.</span></a>
-        <a href="/task-board/"><strong>Task Board</strong><em>React, live demo</em><span>Kanban with keyboard-accessible drag and drop and undo/redo.</span></a>
-        <div><strong>N.E.S.T.</strong><em>AWS Bedrock, LangGraph</em><span>Multi-agent system routing questions to a deterministic engine for real-time financial calculations.</span></div>
-        <div><strong>Pac-Man</strong><em>Java</em><span>Ghost pathfinding with Dijkstra's algorithm and a custom priority queue, 3,000+ lines.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="engine" class="engine">
-    <div class="wrap">
-      <div class="sh">
-        <div>
-          <h2>Try the matching engine</h2>
-          <p>A browser port of my matching engine trading against a simulated market. Place an order and see whether it fills or where it waits in the queue.</p>
-        </div>
-        <a class="more" href="https://github.com/TrentonBankstheCoder12/matching-engine">Read the source</a>
-      </div>
-
-      <div class="panel">
-        <div class="panel-top">
-          <span class="sym">TBX / USD</span>
-          <span>Orders <b class="num" id="st-orders">0</b></span>
-          <span>Trades <b class="num" id="st-trades">0</b></span>
-          <span>Volume <b class="num" id="st-vol">0</b></span>
-          <span>Match time <b class="num" id="st-lat">–</b></span>
-        </div>
-        <div class="panel-body">
-          <div class="ladder" aria-label="Order book">
-            <div class="cols"><span>Price</span><span>Size</span><span>Orders</span></div>
-            <div id="asks"></div>
-            <div class="mid"><span class="last" id="last">100.00</span><small id="spread">Spread 0.05</small></div>
-            <div id="bids"></div>
-          </div>
-          <div class="side">
-            <form id="ticket" novalidate>
-              <div class="seg" role="group" aria-label="Order side">
-                <button type="button" class="buy" data-side="buy" aria-pressed="true">Buy</button>
-                <button type="button" class="sell" data-side="sell" aria-pressed="false">Sell</button>
-              </div>
-              <div class="fields" style="margin:16px 0">
-                <label>Limit price<input id="px" inputmode="decimal" autocomplete="off" value="100.05"></label>
-                <label>Quantity<input id="qty" inputmode="numeric" autocomplete="off" value="25"></label>
-              </div>
-              <button class="btn place buy" id="submit" type="submit">Place buy order</button>
-            </form>
-            <p class="result" id="result" role="status" aria-live="polite">Your resting orders are tagged in the book.</p>
-            <div class="fills">
-              <h3><span>Recent trades</span><button type="button" id="pause">Pause market</button></h3>
-              <ol id="fills" aria-label="Recent trades"></ol>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="note">Prices are integer cents in 5-cent ticks, the same no-floating-point rule the real engine uses. Nothing here leaves your browser.</p>
-    </div>
-  </section>
-
   <section id="experience">
-    <div class="wrap">
-      <div class="sh"><div><h2>Experience</h2><p>Four internships across asset management, systems, transit data and the web.</p></div></div>
+    <div class="wrap row">
+      <h2>Experience</h2>
       <ol class="xp">
         <li>
-          <div><p class="org">Nuveen</p><div class="meta">Jun – Aug 2026<br>Charlotte, NC</div></div>
-          <div>
-            <p class="role">Software Engineering Intern</p>
-            <ul>
-              <li>Built an agentic natural-language query tool for the fixed income team's dashboard. Analysts ask in plain English and get live trade, volume and position data in under 15 seconds, at 99% uptime.</li>
-              <li>Developed a retrieval-augmented text-to-SQL engine on pgvector that turns questions into validated PostgreSQL queries against a read-only replica.</li>
-              <li>Designed the service in Python and FastAPI as a multi-tier pipeline, with tests for API connectivity, retrieval accuracy and SQL guardrails.</li>
-            </ul>
-            <ul class="facts tags" style="padding:0"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>pgvector</li><li>RAG</li></ul>
-          </div>
+          <div class="top"><h3>Nuveen</h3><span class="when">Summer 2026, Charlotte</span></div>
+          <p class="role">Software Engineering Intern</p>
+          <ul>
+            <li>Built a chat-based tool for the fixed income team's dashboard. Analysts ask questions in plain English and get live trade, volume and position data back in under 15 seconds, instead of writing SQL by hand.</li>
+            <li>Designed the service in Python and FastAPI, with a retrieval-augmented engine that turns questions into checked, read-only PostgreSQL queries.</li>
+          </ul>
         </li>
         <li>
-          <div><p class="org">CSMore, Cornell University</p><div class="meta">Jul – Aug 2025<br>Ithaca, NY</div></div>
-          <div>
-            <p class="role">Software Engineering Intern</p>
-            <ul>
-              <li>Designed a working RISC-V processor in Logisim, from datapaths and ALUs to control logic and memory.</li>
-              <li>Wrote and debugged C and OCaml across Docker and SSH environments.</li>
-            </ul>
-          </div>
+          <div class="top"><h3>CSMore, Cornell University</h3><span class="when">Summer 2025, Ithaca</span></div>
+          <p class="role">Software Engineering Intern</p>
+          <ul>
+            <li>Designed a working RISC-V processor in Logisim, and wrote and debugged C and OCaml in Docker and SSH environments.</li>
+          </ul>
         </li>
         <li>
-          <div><p class="org">Chicago Transit Authority</p><div class="meta">Jun – Aug 2024<br>Chicago, IL</div></div>
-          <div>
-            <p class="role">Data Engineering Intern</p>
-            <ul>
-              <li>Analyzed infrastructure workflows with cross-functional engineers and proposed lean process improvements.</li>
-            </ul>
-          </div>
+          <div class="top"><h3>Chicago Transit Authority</h3><span class="when">Summer 2024, Chicago</span></div>
+          <p class="role">Data Engineering Intern</p>
+          <ul>
+            <li>Worked with engineers across teams to study infrastructure workflows and propose process improvements.</li>
+          </ul>
         </li>
         <li>
-          <div><p class="org">Dawn Skies Therapeutic Interventions</p><div class="meta">May – Jun 2024<br>Chicago, IL</div></div>
-          <div>
-            <p class="role">Software Engineering Intern</p>
-            <ul>
-              <li>Built and deployed the company's website and HIPAA-compliant intake forms that cut client onboarding time by 30%.</li>
-            </ul>
-          </div>
+          <div class="top"><h3>Dawn Skies Therapeutic Interventions</h3><span class="when">Spring 2024, Chicago</span></div>
+          <p class="role">Software Engineering Intern</p>
+          <ul>
+            <li>Built the company's website and HIPAA-compliant intake forms that cut client onboarding time by 30%.</li>
+          </ul>
         </li>
       </ol>
     </div>
   </section>
 
   <section id="education">
-    <div class="wrap">
-      <div class="sh"><div><h2>Education</h2></div></div>
+    <div class="wrap row">
+      <h2>Education</h2>
       <div class="edu">
-        <div><h3>Cornell University</h3><div class="meta">Expected June 2028<br>Ithaca, NY</div></div>
-        <div>
-          <p>B.A. in Information Science and Economics, minors in Computer Science and Business. Coursework in data structures and algorithms, functional programming, probability and statistics, data science in Python, networks, and macroeconomic theory.</p>
-          <dl class="skills">
-            <div><dt>Languages</dt><dd>Python, Java, TypeScript, JavaScript, SQL, C, C++, OCaml, Dart</dd></div>
-            <div><dt>Frameworks</dt><dd>FastAPI, React, Node.js, Express, Flutter, NumPy, Pandas</dd></div>
-            <div><dt>Tools</dt><dd>PostgreSQL, Docker, AWS, Git, GitHub Actions, LangGraph</dd></div>
-          </dl>
-        </div>
+        <h3>Cornell University</h3>
+        <p class="when">Class of 2028, Ithaca</p>
+        <p>B.A. in Information Science and Economics, with minors in Computer Science and Business. Coursework includes data structures and algorithms, functional programming, probability and statistics, data science, and macroeconomic theory.</p>
+        <dl class="skills">
+          <div><dt>Languages</dt><dd>Python, Java, JavaScript, SQL, C, C++, OCaml, Dart</dd></div>
+          <div><dt>Tools</dt><dd>FastAPI, React, Node.js, PostgreSQL, Docker, AWS, Git</dd></div>
+        </dl>
       </div>
     </div>
   </section>
 
   <section id="contact" class="contact">
-    <div class="wrap">
-      <div class="card">
-        <h2>Let's build something.</h2>
-        <p>I'm looking for software engineering internships in fintech, trading and financial infrastructure. Email is the fastest way to reach me.</p>
+    <div class="wrap row">
+      <h2>Contact</h2>
+      <div>
+        <h2 class="big">Let's talk.</h2>
+        <p>Email is the best way to reach me.</p>
         <div class="cta">
           <a class="btn solid" href="mailto:tib24@cornell.edu">tib24@cornell.edu</a>
-          <button class="btn" type="button" id="copy-email">
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="5" width="8.5" height="8.5" rx="1.5"/><path d="M10.5 5V3.5A1.5 1.5 0 0 0 9 2H3.5A1.5 1.5 0 0 0 2 3.5V9a1.5 1.5 0 0 0 1.5 1.5H5"/></svg>
-            Copy email
-          </button>
+          <button class="btn" type="button" id="copy">Copy email</button>
           <span class="copied" id="copied" role="status" aria-live="polite"></span>
+        </div>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/trenton-banks-4a81062b7/">LinkedIn</a>
+          <a href="https://github.com/TrentonBankstheCoder12">GitHub</a>
+          <a href="Trenton-Banks-Resume.pdf" download>Resume</a>
         </div>
       </div>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <span>© 2026 Trenton Banks</span>
-    <span>Hand-built HTML, CSS and JavaScript. No frameworks.</span>
-  </div>
-</footer>
-
-<dialog class="pal" id="pal" aria-label="Jump to">
-  <input id="pal-q" type="text" placeholder="Jump to a section, project or link" autocomplete="off" role="combobox" aria-controls="pal-list" aria-expanded="true">
-  <ul id="pal-list" role="listbox"></ul>
-  <footer><span><kbd>↑</kbd> <kbd>↓</kbd> to move</span><span><kbd>Enter</kbd> to open</span><span><kbd>Esc</kbd> to close</span></footer>
-</dialog>
+<footer><div class="wrap">© 2026 Trenton Banks</div></footer>
 
 <script>
-(() => {
-  const $ = id => document.getElementById(id);
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ---------- Matching engine (integer cents, price-time priority) ---------- */
-  const TICK = 5, DEPTH = 6;
-  const book = { buy: [], sell: [] };
-  const trades = [];
-  let seq = 0, last = 10000, prev = 10000, nOrders = 0, nTrades = 0, volume = 0, latency = [];
-  const better = (side, a, b) => side === 'buy' ? a > b : a < b;
-  const fmt = c => (c / 100).toFixed(2);
-
-  function rest(side, price, qty, mine) {
-    const levels = book[side];
-    let i = levels.findIndex(l => l.price === price);
-    if (i === -1) {
-      i = levels.findIndex(l => better(side, price, l.price));
-      if (i === -1) i = levels.length;
-      levels.splice(i, 0, { price, orders: [] });
-    }
-    levels[i].orders.push({ id: ++seq, qty, mine });
-    return levels[i].orders.length;
-  }
-
-  function submit(side, price, qty, mine) {
-    const t0 = performance.now();
-    nOrders++;
-    const contra = book[side === 'buy' ? 'sell' : 'buy'];
-    const fills = [];
-    while (qty > 0 && contra.length) {
-      const level = contra[0];
-      if (side === 'buy' ? level.price > price : level.price < price) break;
-      const head = level.orders[0];
-      const q = Math.min(qty, head.qty);
-      fills.push({ price: level.price, qty: q });
-      qty -= q; head.qty -= q;
-      if (!head.qty) level.orders.shift();
-      if (!level.orders.length) contra.shift();
-    }
-    const queue = qty > 0 ? rest(side, price, qty, mine) : 0;
-    latency.push(performance.now() - t0); if (latency.length > 50) latency.shift();
-    for (const f of fills) {
-      trades.unshift({ side, price: f.price, qty: f.qty, mine, id: ++seq });
-      prev = last; last = f.price; nTrades++; volume += f.qty;
-    }
-    trades.length = Math.min(trades.length, 14);
-    return { fills, left: qty, queue };
-  }
-
-  function seed() {
-    for (let i = 1; i <= 7; i++) for (let k = 0; k < 1 + (i % 3); k++) {
-      rest('sell', 10000 + i * TICK, 10 + ((i * 17 + k * 11) % 40), false);
-      rest('buy', 10000 - (i - 1) * TICK, 10 + ((i * 13 + k * 7) % 40), false);
-    }
-    for (let i = 0; i < 10; i++) simulate(false);
-  }
-
-  function simulate(draw = true) {
-    const bid = book.buy[0]?.price ?? last - TICK, ask = book.sell[0]?.price ?? last + TICK;
-    const side = Math.random() < 0.5 ? 'buy' : 'sell', sign = side === 'buy' ? 1 : -1;
-    let price = Math.random() < 0.38
-      ? (side === 'buy' ? ask : bid) + sign * Math.floor(Math.random() * 2) * TICK
-      : (side === 'buy' ? bid : ask) - sign * Math.floor(Math.random() * 5) * TICK;
-    price += Math.round((10000 - (bid + ask) / 2) / 400) * TICK;
-    price = Math.max(9000, Math.min(11000, price));
-    submit(side, price, 5 * (1 + Math.floor(Math.random() * 8)), false);
-    for (const s of ['buy', 'sell']) if (book[s].length > 14) book[s].length = 14;
-    if (draw) render(true);
-  }
-
-  /* ---------- Rendering ---------- */
-  let lastPrintId = 0;
-  function levelRows(levels, cls, reverse, max) {
-    const out = levels.slice(0, DEPTH).map(l => {
-      const size = l.orders.reduce((s, o) => s + o.qty, 0);
-      const mine = l.orders.some(o => o.mine);
-      return `<div class="row ${cls}${mine ? ' mine' : ''}"><i class="bar" style="width:${(size / max * 100).toFixed(1)}%"></i>` +
-        `<span class="px">${fmt(l.price)}</span><span>${size}</span><span>${l.orders.length}</span></div>`;
-    });
-    while (out.length < DEPTH) out.push('<div class="row empty"><span>–</span><span></span><span></span></div>');
-    return (reverse ? out.reverse() : out).join('');
-  }
-  function render(fromTick) {
-    const top = book.buy.slice(0, DEPTH).concat(book.sell.slice(0, DEPTH));
-    const max = Math.max(1, ...top.map(l => l.orders.reduce((s, o) => s + o.qty, 0)));
-    $('asks').innerHTML = levelRows(book.sell, 'ask', true, max);
-    $('bids').innerHTML = levelRows(book.buy, 'bid', false, max);
-    const el = $('last');
-    el.textContent = fmt(last);
-    el.className = 'last' + (last > prev ? ' up' : last < prev ? ' down' : '');
-    const b = book.buy[0]?.price, a = book.sell[0]?.price;
-    $('spread').textContent = b != null && a != null ? `Spread ${fmt(a - b)}` : 'One-sided book';
-    $('st-orders').textContent = nOrders.toLocaleString();
-    $('st-trades').textContent = nTrades.toLocaleString();
-    $('st-vol').textContent = volume.toLocaleString();
-    const avg = latency.reduce((s, x) => s + x, 0) / Math.max(1, latency.length);
-    $('st-lat').textContent = avg < 0.01 ? '<10 µs' : `${Math.round(avg * 1000)} µs`;
-    $('fills').innerHTML = trades.slice(0, 6).map(t =>
-      `<li class="${t.mine ? 'you' : ''}"><span class="${t.side === 'buy' ? 'b' : 's'}">${t.mine ? 'You ' : ''}${t.side}</span><span>${fmt(t.price)}</span><span>${t.qty}</span></li>`
-    ).join('') || '<li><span>No trades yet</span><span></span><span></span></li>';
-    $('prints').innerHTML = trades.map(t =>
-      `<li class="${t.side === 'buy' ? 'b' : 's'}${fromTick && t.id > lastPrintId ? ' new' : ''}"><b>${fmt(t.price)}</b><span>${t.qty}</span></li>`
-    ).join('');
-    lastPrintId = trades[0]?.id ?? lastPrintId;
-  }
-
-  /* ---------- Order ticket ---------- */
-  let side = 'buy';
-  document.querySelectorAll('.seg button').forEach(btn => btn.addEventListener('click', () => {
-    side = btn.dataset.side;
-    document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
-    const s = $('submit');
-    s.textContent = `Place ${side} order`;
-    s.className = `btn place ${side}`;
-    const best = side === 'buy' ? book.sell[0]?.price : book.buy[0]?.price;
-    if (best) $('px').value = fmt(best);
-  }));
-  const ordinal = n => n + (['th', 'st', 'nd', 'rd'][(n % 100 > 10 && n % 100 < 14) ? 0 : n % 10] || 'th');
-  $('ticket').addEventListener('submit', e => {
-    e.preventDefault();
-    const cents = Math.round(parseFloat($('px').value) * 100), qty = Number($('qty').value), msg = $('result');
-    if (!Number.isFinite(cents) || cents < 9000 || cents > 11000 || cents % TICK) { msg.textContent = 'Enter a price from 90.00 to 110.00 in steps of 0.05.'; return; }
-    if (!Number.isInteger(qty) || qty < 1 || qty > 500) { msg.textContent = 'Enter a whole-number quantity from 1 to 500.'; return; }
-    const r = submit(side, cents, qty, true);
-    const filled = r.fills.reduce((s, f) => s + f.qty, 0);
-    const avg = filled ? r.fills.reduce((s, f) => s + f.price * f.qty, 0) / filled / 100 : 0;
-    if (filled && !r.left) msg.textContent = `Filled all ${filled} at an average of ${avg.toFixed(3)}.`;
-    else if (filled) msg.textContent = `Filled ${filled} at ${avg.toFixed(3)} on average. The other ${r.left} rest at ${fmt(cents)}, ${ordinal(r.queue)} in the queue.`;
-    else msg.textContent = `Nothing crossed the spread, so all ${qty} rest at ${fmt(cents)}, ${ordinal(r.queue)} in the queue.`;
-    render(true);
-  });
-
-  /* ---------- Market loop: only while the page is visible ---------- */
-  let running = !reduce, timer = null;
-  const sync = () => {
-    const go = running && document.visibilityState === 'visible';
-    if (go && !timer) timer = setInterval(simulate, 1200);
-    if (!go && timer) { clearInterval(timer); timer = null; }
-    $('pause').textContent = running ? 'Pause market' : 'Resume market';
-    $('live-dot').classList.toggle('on', running);
-  };
-  $('pause').addEventListener('click', () => { running = !running; sync(); });
-  document.addEventListener('visibilitychange', sync);
-
-  /* ---------- Nav: border on scroll, current section ---------- */
-  const nav = $('nav');
+  const nav = document.getElementById('nav');
   addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
-  const links = [...document.querySelectorAll('.nav ul a')];
-  const io = new IntersectionObserver(entries => entries.forEach(e => {
-    if (e.isIntersecting) links.forEach(a => a.setAttribute('aria-current', String(a.hash === '#' + e.target.id)));
-  }), { rootMargin: '-45% 0px -50% 0px' });
-  ['work', 'engine', 'experience', 'education', 'contact'].forEach(id => io.observe($(id)));
-
-  /* ---------- Copy email ---------- */
-  $('copy-email').addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText('tib24@cornell.edu'); $('copied').textContent = 'Copied'; }
-    catch { $('copied').textContent = 'tib24@cornell.edu'; }
-    setTimeout(() => { $('copied').textContent = ''; }, 2400);
+  document.getElementById('copy').addEventListener('click', async () => {
+    const out = document.getElementById('copied');
+    try { await navigator.clipboard.writeText('tib24@cornell.edu'); out.textContent = 'Copied'; }
+    catch { out.textContent = 'tib24@cornell.edu'; }
+    setTimeout(() => { out.textContent = ''; }, 2400);
   });
-
-  /* ---------- Command palette ---------- */
-  const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
-  $('kbd').textContent = isMac ? '⌘K' : 'Ctrl K';
-  const actions = [
-    ['Selected work', 'Section', '#work'], ['Matching engine demo', 'Section', '#engine'],
-    ['Experience', 'Section', '#experience'], ['Education', 'Section', '#education'], ['Contact', 'Section', '#contact'],
-    ['Download resume', 'File', 'Trenton-Banks-Resume.pdf'], ['Copy email address', 'Action', 'copy'],
-    ['GitHub profile', 'Link', 'https://github.com/TrentonBankstheCoder12'],
-    ['LinkedIn', 'Link', 'https://www.linkedin.com/in/trenton-banks-4a81062b7/'],
-    ...['ledger-service', 'matching-engine', 'fraud-detector', 'auth-service', 'portfolio-tracker-cli', 'search-engine', 'url-shortener', 'realtime-chat']
-      .map(r => [r, 'Repository', `https://github.com/TrentonBankstheCoder12/${r}`]),
-    ['Budget Dashboard', 'Live demo', '/budget-dashboard/'], ['Task Board', 'Live demo', '/task-board/'],
-  ];
-  const pal = $('pal'), q = $('pal-q'), list = $('pal-list');
-  let shown = [], sel = 0;
-  function draw() {
-    const term = q.value.trim().toLowerCase();
-    shown = actions.filter(a => (a[0] + ' ' + a[1]).toLowerCase().includes(term));
-    sel = Math.min(sel, Math.max(0, shown.length - 1));
-    list.innerHTML = shown.map((a, i) => `<li role="option" id="opt${i}" aria-selected="${i === sel}" data-i="${i}">${a[0]}<span>${a[1]}</span></li>`).join('')
-      || '<li class="empty">No matches. Try "resume" or "engine".</li>';
-    q.setAttribute('aria-activedescendant', shown.length ? 'opt' + sel : '');
-    list.querySelector('[aria-selected="true"]')?.scrollIntoView({ block: 'nearest' });
-  }
-  function run(a) {
-    pal.close();
-    if (!a) return;
-    if (a[2] === 'copy') { $('copy-email').click(); location.hash = '#contact'; }
-    else if (a[2].startsWith('#')) document.querySelector(a[2]).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
-    else if (a[1] === 'File') { const l = document.createElement('a'); l.href = a[2]; l.download = ''; l.click(); }
-    else location.href = a[2];
-  }
-  function open() { q.value = ''; sel = 0; draw(); pal.showModal(); q.focus(); }
-  $('open-pal').addEventListener('click', open);
-  addEventListener('keydown', e => {
-    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); pal.open ? pal.close() : open(); }
-    else if (e.key === '/' && !pal.open && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); open(); }
-  });
-  q.addEventListener('input', () => { sel = 0; draw(); });
-  q.addEventListener('keydown', e => {
-    if (e.key === 'ArrowDown') { e.preventDefault(); sel = Math.min(sel + 1, shown.length - 1); draw(); }
-    else if (e.key === 'ArrowUp') { e.preventDefault(); sel = Math.max(sel - 1, 0); draw(); }
-    else if (e.key === 'Enter') { e.preventDefault(); run(shown[sel]); }
-  });
-  list.addEventListener('click', e => { const li = e.target.closest('[data-i]'); if (li) run(shown[+li.dataset.i]); });
-  pal.addEventListener('click', e => { if (e.target === pal) pal.close(); });
-
-  seed(); render(false); sync();
-})();
 </script>
 </body>
 </html>
