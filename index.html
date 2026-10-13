@@ -18,6 +18,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Trenton Banks","url":"https://trentonbanksthecoder12.github.io/","email":"mailto:tib24@cornell.edu","alumniOf":{"@type":"CollegeOrUniversity","name":"Cornell University"},"sameAs":["https://github.com/TrentonBankstheCoder12","https://www.linkedin.com/in/trenton-banks-4a81062b7/"]}
+  const spot = document.getElementById('spot');
+  if (matchMedia('(pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let raf = 0;
+    addEventListener('pointermove', e => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        spot.style.setProperty('--x', e.clientX + 'px');
+        spot.style.setProperty('--y', e.clientY + 'px');
+        spot.classList.add('on');
+      });
+    }, { passive: true });
+    document.addEventListener('pointerleave', () => spot.classList.remove('on'));
+  }
 </script>
 <style>
 :root {
@@ -97,10 +110,50 @@ h2 { font-size: 15px; font-weight: 500; color: var(--muted); margin: 6px 0 0; }
 footer { border-top: 1px solid var(--line); }
 footer .wrap { padding-top: 24px; padding-bottom: 24px; font-size: 13.5px; color: var(--muted); }
 
+/* Interest layer */
+.spot { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0; transition: opacity .4s;
+  background: radial-gradient(520px circle at var(--x, 50%) var(--y, 30%), rgba(255, 255, 255, 0.055), transparent 60%); }
+.spot.on { opacity: 1; }
+main, footer, .nav { position: relative; z-index: 1; }
+.nav { z-index: 10; }
+.grain { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .05; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+.hero h1 .line { display: block; overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; }
+.hero h1 .line span { display: block; animation: rise .9s cubic-bezier(.2, .7, .1, 1) both; }
+.hero h1 .line + .line span { animation-delay: .08s; }
+.hero .reveal { animation: fade .9s .35s ease both; }
+@keyframes rise { from { transform: translateY(105%); } }
+@keyframes fade { from { opacity: 0; transform: translateY(8px); } }
+.photo { position: relative; }
+.photo::before { content: ""; position: absolute; inset: -18% -14%; z-index: -1; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.09), transparent); }
+.photo img { transition: transform .5s cubic-bezier(.2, .7, .1, 1); }
+.photo:hover img { transform: rotate(-1.2deg) scale(1.015); }
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 .line span, .hero .reveal { animation: none; }
+  .photo:hover img { transform: none; }
+}
+
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* Timeline */
+.xp { position: relative; }
+.xp > li { position: relative; padding-left: 0; }
+.xp .year { position: absolute; left: calc(-240px - 40px); top: -6px; font-size: 52px; line-height: 1; font-weight: 600; letter-spacing: -0.04em; color: #2B2B2B; transition: color .3s; font-variant-numeric: tabular-nums; }
+.xp > li:hover .year { color: #5A5A5A; }
+.xp > li:hover h3 { color: #fff; }
+.exp-head { display: flex; flex-direction: column; justify-content: space-between; }
+
+/* Footer wordmark */
+.wordmark { overflow: hidden; border-top: 1px solid var(--line); }
+.wordmark div { max-width: 1040px; margin: 0 auto; padding: 0 var(--gutter); font-size: clamp(48px, 13.6vw, 158px); line-height: .78; font-weight: 600; letter-spacing: -0.06em; color: #161616; white-space: nowrap; user-select: none; transform: translateY(14%); }
+
 @media (max-width: 860px) {
   .hero .wrap { grid-template-columns: 1fr; }
   .photo { max-width: 240px; order: -1; }
   .row { grid-template-columns: 1fr; gap: 20px; }
+  .row > div:empty { display: none; }
+  .xp .year { position: static; display: block; font-size: 36px; margin-bottom: 10px; }
 }
 @media (max-width: 520px) {
   .nav ul { gap: 18px; font-size: 14.5px; }
@@ -111,6 +164,8 @@ footer .wrap { padding-top: 24px; padding-bottom: 24px; font-size: 13.5px; color
 </style>
 </head>
 <body>
+<div class="grain" aria-hidden="true"></div>
+<div class="spot" id="spot" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
   <div class="wrap">
@@ -127,10 +182,10 @@ footer .wrap { padding-top: 24px; padding-bottom: 24px; font-size: 13.5px; color
   <div class="hero">
     <div class="wrap">
       <div>
-        <h1>Trenton Banks</h1>
-        <p>I'm a software engineer from Chicago, studying Information Science and Economics at Cornell.</p>
-        <p>This past summer I was at Nuveen, building a tool that lets the fixed income team ask questions about their data in plain English. I'm looking for software engineering internships in fintech.</p>
-        <div class="cta">
+        <h1><span class="line"><span>Trenton</span></span><span class="line"><span>Banks</span></span></h1>
+        <p class="reveal">I'm a software engineer from Chicago, studying Information Science and Economics at Cornell.</p>
+        <p class="reveal">This past summer I was at Nuveen, building a tool that lets the fixed income team ask questions about their data in plain English. I'm looking for software engineering internships in fintech.</p>
+        <div class="cta reveal">
           <a class="btn solid" href="Trenton-Banks-Resume.pdf" download>
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M8 2.5v7.5m0 0L4.8 6.8M8 10l3.2-3.2M3 13.5h10"/></svg>
             Download resume
@@ -146,10 +201,10 @@ footer .wrap { padding-top: 24px; padding-bottom: 24px; font-size: 13.5px; color
 
   <section id="experience">
     <div class="wrap row">
-      <h2>Experience</h2>
+      <h2 class="sr">Experience</h2><div aria-hidden="true"></div>
       <ol class="xp">
         <li>
-          <div class="top"><h3>Nuveen</h3><span class="when">Summer 2026, Charlotte</span></div>
+          <span class="year" aria-hidden="true">2026</span><div class="top"><h3>Nuveen</h3><span class="when">Summer 2026, Charlotte</span></div>
           <p class="role">Software Engineering Intern</p>
           <ul>
             <li>Built a chat-based tool for the fixed income team's dashboard. Analysts ask questions in plain English and get live trade, volume and position data back in under 15 seconds, instead of writing SQL by hand.</li>
@@ -157,21 +212,21 @@ footer .wrap { padding-top: 24px; padding-bottom: 24px; font-size: 13.5px; color
           </ul>
         </li>
         <li>
-          <div class="top"><h3>CSMore, Cornell University</h3><span class="when">Summer 2025, Ithaca</span></div>
+          <span class="year" aria-hidden="true">2025</span><div class="top"><h3>CSMore, Cornell University</h3><span class="when">Summer 2025, Ithaca</span></div>
           <p class="role">Software Engineering Intern</p>
           <ul>
             <li>Designed a working RISC-V processor in Logisim, and wrote and debugged C and OCaml in Docker and SSH environments.</li>
           </ul>
         </li>
         <li>
-          <div class="top"><h3>Chicago Transit Authority</h3><span class="when">Summer 2024, Chicago</span></div>
+          <span class="year" aria-hidden="true">2024</span><div class="top"><h3>Chicago Transit Authority</h3><span class="when">Summer 2024, Chicago</span></div>
           <p class="role">Data Engineering Intern</p>
           <ul>
             <li>Worked with engineers across teams to study infrastructure workflows and propose process improvements.</li>
           </ul>
         </li>
         <li>
-          <div class="top"><h3>Dawn Skies Therapeutic Interventions</h3><span class="when">Spring 2024, Chicago</span></div>
+          <span class="year" aria-hidden="true">2024</span><div class="top"><h3>Dawn Skies Therapeutic Interventions</h3><span class="when">Spring 2024, Chicago</span></div>
           <p class="role">Software Engineering Intern</p>
           <ul>
             <li>Built the company's website and HIPAA-compliant intake forms that cut client onboarding time by 30%.</li>
@@ -217,6 +272,7 @@ footer .wrap { padding-top: 24px; padding-bottom: 24px; font-size: 13.5px; color
   </section>
 </main>
 
+<div class="wordmark" aria-hidden="true"><div>Trenton Banks</div></div>
 <footer><div class="wrap">© 2026 Trenton Banks</div></footer>
 
 <script>
