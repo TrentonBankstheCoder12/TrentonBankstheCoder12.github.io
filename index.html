@@ -172,7 +172,7 @@ html.reduce .reveal { opacity: 1; transform: none; transition: none; }
 @keyframes toastIn { from { opacity: 0; transform: translateY(24px) scale(.96); } }
 @keyframes toastOut { to { opacity: 0; transform: translateY(12px) scale(.98); } }
 
-dialog.ach { width: min(520px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow-y: auto; padding: 0; border: 0; border-radius: 28px; background: #0B0F18; color: var(--text); box-shadow: 0 40px 120px -20px rgba(0,0,0,.8), inset 0 0 0 1px rgba(255,255,255,0.08); }
+dialog.ach { width: min(760px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow-y: auto; padding: 0; border: 0; border-radius: 28px; background: #0B0F18; color: var(--text); box-shadow: 0 40px 120px -20px rgba(0,0,0,.8), inset 0 0 0 1px rgba(255,255,255,0.08); }
 dialog.ach::backdrop { background: rgba(0,0,0,.6); backdrop-filter: blur(6px); }
 dialog.ach[open] { animation: toastIn .45s cubic-bezier(.2,.9,.2,1) both; }
 .ach-head { padding: 24px 28px 18px; background: radial-gradient(120% 140% at 0% 0%, #16337A, var(--navy) 50%, transparent); }
@@ -180,7 +180,8 @@ dialog.ach[open] { animation: toastIn .45s cubic-bezier(.2,.9,.2,1) both; }
 .ach-head p { margin: 0; color: var(--sub); font-size: 15px; }
 .meter { height: 8px; border-radius: 99px; background: rgba(255,255,255,0.1); margin-top: 18px; overflow: hidden; }
 .meter i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #2F7BF5, #8DB0F2); transition: width .8s cubic-bezier(.2,.8,.2,1); }
-.ach-list { list-style: none; margin: 0; padding: 8px 16px 8px; display: grid; gap: 4px; }
+.ach-list { list-style: none; margin: 0; padding: 8px 16px 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 8px; }
+@media (max-width: 640px) { .ach-list { grid-template-columns: 1fr; } }
 .ach-list li { display: flex; align-items: center; gap: 14px; padding: 7px 12px; border-radius: 16px; }
 .ach-list li .badge { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font-size: 19px; background: rgba(255,255,255,0.06); filter: grayscale(1); opacity: .45; }
 .ach-list li.got .badge { background: linear-gradient(145deg, #2F7BF5, #12285A); filter: none; opacity: 1; }
@@ -211,6 +212,65 @@ dialog.ach[open] { animation: toastIn .45s cubic-bezier(.2,.9,.2,1) both; }
 @media (prefers-reduced-motion: reduce) { .toast, dialog.ach[open], .xp.bump, .stage.spin img { animation: none; } }
 @media (max-width: 520px) { .xp .label { display: none; } .xp { padding-right: 4px; } }
 
+
+/* ---------- Arcade ---------- */
+.arcade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.game { border-radius: 30px; background: var(--tile); padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; min-height: 520px; position: relative; overflow: hidden; }
+.game.navy { background: radial-gradient(120% 100% at 0% 0%, #16337A, var(--navy) 45%, var(--navy-deep)); }
+.game-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 18px; }
+.game-top > span { white-space: nowrap; }
+.game-top h3 { margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.03em; }
+.game-top span { font-size: 14px; color: var(--sub); font-variant-numeric: tabular-nums; }
+.game .blurb { margin: -8px 0 18px; color: var(--sub); font-size: 16px; }
+.q { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; margin: 6px 0 18px; min-height: 2.6em; }
+.opts { display: grid; gap: 10px; }
+.opt { all: unset; box-sizing: border-box; cursor: pointer; padding: 14px 18px; border-radius: 16px; background: rgba(255,255,255,0.06); font-size: 16px; font-weight: 500; display: flex; justify-content: space-between; align-items: center; transition: background .2s, transform .15s; }
+.opt:hover { background: rgba(255,255,255,0.11); }
+.opt:active { transform: scale(.985); }
+.opt:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.opt.right { background: var(--blue); color: #fff; }
+.opt.wrong { background: rgba(255,255,255,0.04); color: var(--dim); text-decoration: line-through; }
+.opt[disabled] { cursor: default; }
+.dots { display: flex; gap: 6px; margin-top: auto; padding-top: 20px; }
+.dots i { width: 100%; height: 4px; border-radius: 4px; background: rgba(255,255,255,0.12); }
+.dots i.ok { background: var(--blue); } .dots i.no { background: #3A3F4B; } .dots i.now { background: rgba(255,255,255,0.4); }
+.end { text-align: center; margin: auto 0; }
+.end .big-num { font-size: 88px; font-weight: 700; letter-spacing: -0.06em; line-height: 1; margin: 0 0 8px; }
+.end p { color: var(--sub); margin: 0 0 22px; font-size: 17px; }
+.end p.big-num { color: var(--text); margin-bottom: 8px; }
+.end p.big-num.grad { color: transparent; }
+
+.board { position: relative; flex: 1; min-height: 340px; border-radius: 20px; overflow: hidden; touch-action: manipulation; user-select: none;
+  background: repeating-linear-gradient(transparent 0 27px, rgba(141,176,242,0.06) 27px 28px), #070A12; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06); }
+.board .ln { position: absolute; left: 14px; top: 8px; font: 12px/28px ui-monospace, Menlo, monospace; color: rgba(141,176,242,0.25); white-space: pre; pointer-events: none; }
+.bug { all: unset; position: absolute; width: 52px; height: 52px; display: grid; place-items: center; font-size: 34px; cursor: pointer; border-radius: 50%; animation: pop .25s cubic-bezier(.2,.9,.3,1.4) both; transition: transform .15s; }
+.bug:hover { transform: scale(1.12); }
+.bug:focus-visible { outline: 2px solid var(--link); }
+.bug.dying { animation: fadeBug .35s ease both; }
+.bug.squashed { animation: squash .3s ease both; pointer-events: none; }
+@keyframes pop { from { transform: scale(0); } }
+@keyframes fadeBug { to { opacity: 0; transform: scale(.5); } }
+@keyframes squash { to { transform: scale(1.6, .2); opacity: 0; } }
+.plus { position: absolute; font-weight: 700; color: var(--link); pointer-events: none; animation: floatUp .7s ease-out both; }
+@keyframes floatUp { to { transform: translateY(-36px); opacity: 0; } }
+.overlay { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 24px; background: rgba(7,10,18,0.78); backdrop-filter: blur(4px); }
+.overlay[hidden] { display: none; }
+.overlay p { color: var(--sub); margin: 0 0 18px; }
+.overlay .big-num { font-size: 64px; font-weight: 700; letter-spacing: -0.05em; margin: 0 0 4px; color: var(--text); }
+.timebar { height: 4px; border-radius: 4px; background: rgba(255,255,255,0.1); margin-top: 14px; overflow: hidden; }
+.timebar i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, #2F7BF5, #8DB0F2); transform-origin: left; }
+
+.rank { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 13px; font-weight: 600; color: var(--sub); }
+.rank b { padding: 3px 10px; border-radius: 999px; background: #FFD60A; color: #000; font-size: 12px; }
+
+/* Retro mode (Konami code) */
+html.retro body { filter: contrast(1.08) saturate(1.25); }
+html.retro::after { content: ""; position: fixed; inset: 0; z-index: 70; pointer-events: none; background: repeating-linear-gradient(rgba(0,0,0,0) 0 2px, rgba(0,0,0,0.22) 2px 3px); mix-blend-mode: multiply; }
+html.retro .headline, html.retro .h2, html.retro h3 { font-family: ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: -0.04em; }
+html.retro .stage img { image-rendering: pixelated; }
+@media (max-width: 834px) { .arcade { grid-template-columns: 1fr; } .game { min-height: 0; } }
+@media (prefers-reduced-motion: reduce) { .bug, .bug.dying, .bug.squashed, .plus { animation: none; } }
+
 @media (max-width: 834px) {
   .nav ul { display: none; }
   .bento { grid-template-columns: 1fr 1fr; }
@@ -240,12 +300,13 @@ dialog.ach[open] { animation: toastIn .45s cubic-bezier(.2,.9,.2,1) both; }
       <li><a href="#highlights">Highlights</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#arcade">Arcade</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-right">
       <button class="xp" id="xp" type="button" aria-haspopup="dialog" aria-label="Achievements">
         <svg viewBox="0 0 36 36" aria-hidden="true"><circle class="track" cx="18" cy="18" r="15" fill="none" stroke-width="4"/><circle class="bar" id="xp-bar" cx="18" cy="18" r="15" fill="none" stroke-width="4" stroke-dasharray="94.25" stroke-dashoffset="94.25"/></svg>
-        <span id="xp-count">0/8</span><span class="label">&nbsp;Found</span>
+        <span id="xp-count">0 XP</span>
       </button>
       <a class="pill" href="Trenton-Banks-Resume.pdf" download data-ach="resume">Resume</a>
     </div>
@@ -389,6 +450,47 @@ dialog.ach[open] { animation: toastIn .45s cubic-bezier(.2,.9,.2,1) both; }
     </div>
   </section>
 
+  <section id="arcade">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <h2 class="h2">Arcade.</h2>
+        <p class="lede">Two Quick Games. Real Facts. Bonus XP.</p>
+      </div>
+      <div class="arcade">
+        <article class="game navy reveal" id="quiz" aria-labelledby="quiz-title">
+          <div class="game-top"><h3 id="quiz-title">Trivia.</h3><span id="quiz-step">5 Questions</span></div>
+          <p class="blurb">How well do you know me? Get all five for a bonus achievement.</p>
+          <div id="quiz-body"></div>
+          <div class="dots" id="quiz-dots" aria-hidden="true"></div>
+        </article>
+        <article class="game reveal d1" aria-labelledby="bugs-title">
+          <div class="game-top"><h3 id="bugs-title">Bug Squash.</h3><span><span id="bug-score">0</span> squashed &nbsp; Best <span id="bug-best">0</span></span></div>
+          <p class="blurb">Every engineer's day job. Squash 12 bugs in 20 seconds to unlock Exterminator.</p>
+          <div class="board" id="board">
+            <div class="ln" aria-hidden="true">01  def ship_it():
+02      tests = run_all()
+03      assert tests.passed
+04      deploy(to="prod")
+05
+06  # TODO: fix the bugs
+07  # they keep crawling back
+08
+09  if __name__ == "__main__":
+10      ship_it()</div>
+            <div class="overlay" id="bug-overlay">
+              <div>
+                <p class="big-num" id="bug-result" hidden></p>
+                <p id="bug-msg">Bugs will appear in the code. Tap them before they crawl away.</p>
+                <button class="btn" type="button" id="bug-start">Start Game</button>
+              </div>
+            </div>
+          </div>
+          <div class="timebar" aria-hidden="true"><i id="bug-time"></i></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" class="contact center">
     <div class="wrap reveal">
       <h2 class="h2 grad">Let's Work Together.</h2>
@@ -413,7 +515,8 @@ dialog.ach[open] { animation: toastIn .45s cubic-bezier(.2,.9,.2,1) both; }
 <dialog class="ach" id="ach" aria-labelledby="ach-title">
   <div class="ach-head">
     <h2 id="ach-title">Achievements.</h2>
-    <p id="ach-sub">Explore the site to unlock all eight.</p>
+    <p id="ach-sub">Explore the site to unlock achievements.</p>
+    <p class="rank" id="rank"></p>
     <div class="meter"><i id="ach-meter"></i></div>
   </div>
   <div class="reward" id="reward">
@@ -430,7 +533,7 @@ dialog.ach[open] { animation: toastIn .45s cubic-bezier(.2,.9,.2,1) both; }
 
 <footer>
   <div class="wrap">
-    <span>Copyright © 2026 Trenton Banks. All rights reserved.</span>
+    <span id="copyright">Copyright © 2026 Trenton Banks. All rights reserved.</span>
     <nav aria-label="Footer"><a href="mailto:tib24@cornell.edu">tib24@cornell.edu</a><a href="Trenton-Banks-Resume.pdf" download>Resume</a></nav>
   </div>
 </footer>
@@ -461,9 +564,14 @@ dialog.ach[open] { animation: toastIn .45s cubic-bezier(.2,.9,.2,1) both; }
     { id: 'resume', icon: '📄', name: 'Paper Trail', how: 'Download the resume.' },
     { id: 'network', icon: '🔗', name: 'Networker', how: 'Open LinkedIn or GitHub.' },
     { id: 'hello', icon: '✉️', name: 'Say Hello', how: 'Email me or copy my address.' },
-    { id: 'secret', icon: '🥚', name: 'Curious Mind', how: 'Secret. Hint: the photo is clickable.' },
+    { id: 'quiz', icon: '🧠', name: 'Top of the Class', how: 'Score 5 out of 5 in the trivia game.' },
+    { id: 'bugs', icon: '🐛', name: 'Exterminator', how: 'Squash 12 bugs in one round.' },
+    { id: 'secret', icon: '🥚', name: 'Curious Mind', how: 'Secret. Hint: the photo is clickable.', hidden: true },
+    { id: 'retro', icon: '🕹️', name: 'Retro Gamer', how: 'Secret. Hint: a classic cheat code. On a phone, the copyright line hides something.', hidden: true },
   ];
-  const KEY = 'tb-achievements-v1';
+  const RANKS = [[0, 'Visitor'], [2, 'Explorer'], [4, 'Talent Scout'], [7, 'Recruiter'], [10, 'Head Hunter'], [11, 'Hiring Manager']];
+  const rankOf = n => RANKS.filter(r => n >= r[0]).pop()[1];
+  const KEY = 'tb-achievements-v2';
   let got = new Set();
   try { got = new Set(JSON.parse(localStorage.getItem(KEY) || '[]')); } catch {}
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify([...got])); } catch {} };
@@ -471,24 +579,25 @@ dialog.ach[open] { animation: toastIn .45s cubic-bezier(.2,.9,.2,1) both; }
 
   function paint() {
     const n = got.size, total = ACH.length;
-    document.getElementById('xp-count').textContent = `${n}/${total}`;
+    document.getElementById('xp-count').textContent = `${n * 100} XP`;
+    document.getElementById('rank').innerHTML = `Rank <b>${rankOf(n)}</b> ${n * 100} of ${total * 100} XP`;
     document.getElementById('xp-bar').style.strokeDashoffset = C * (1 - n / total);
     document.getElementById('xp').classList.toggle('done', n === total);
     document.getElementById('ach-meter').style.width = (n / total * 100) + '%';
-    document.getElementById('ach-sub').textContent = n === total ? 'Every achievement found. Nice work.' : `${n} of ${total} unlocked. Keep exploring.`;
+    document.getElementById('ach-sub').textContent = n === total ? 'Every achievement found. Nice work.' : `${n} of ${total} unlocked. Keep exploring to rank up.`;
     document.getElementById('reward').classList.toggle('on', n === total);
     document.getElementById('ach-list').innerHTML = ACH.map(a => {
-      const has = got.has(a.id), hidden = a.id === 'secret' && !has;
-      return `<li class="${has ? 'got' : ''}"><span class="badge" aria-hidden="true">${hidden ? '?' : a.icon}</span><div><b>${hidden ? 'Secret Achievement' : a.name}</b><span>${has ? 'Unlocked' : a.how}</span></div></li>`;
+      const has = got.has(a.id), hidden = a.hidden && !has;
+      return `<li class="${has ? 'got' : ''}"><span class="badge" aria-hidden="true">${hidden ? '?' : a.icon}</span><div><b>${hidden ? 'Secret Achievement' : a.name}</b><span>${has ? 'Unlocked, +100 XP' : a.how}</span></div></li>`;
     }).join('');
     const left = total - n;
     document.getElementById('hint').textContent = left ? `${left} achievement${left > 1 ? 's' : ''} left to find. Tap the counter at the top to see them.` : 'You found everything. You clearly read the whole thing.';
   }
 
-  function toast(a) {
+  function toast(a, html) {
     const el = document.createElement('div');
     el.className = 'toast';
-    el.innerHTML = `<span class="badge" aria-hidden="true">${a.icon}</span><div><small>Achievement Unlocked</small><b>${a.name}</b><span>${got.size} of ${ACH.length} found</span></div>`;
+    el.innerHTML = html ? html : `<span class="badge" aria-hidden="true">${a.icon}</span><div><small>Achievement Unlocked</small><b>${a.name}</b><span>+100 XP, ${got.size} of ${ACH.length} found</span></div>`;
     const box = document.getElementById('toasts');
     box.appendChild(el);
     setTimeout(() => { el.classList.add('out'); setTimeout(() => el.remove(), 450); }, 3200);
@@ -498,7 +607,10 @@ dialog.ach[open] { animation: toastIn .45s cubic-bezier(.2,.9,.2,1) both; }
     if (got.has(id)) return;
     const a = ACH.find(x => x.id === id);
     if (!a) return;
+    const before = rankOf(got.size);
     got.add(id); save(); paint(); toast(a);
+    const after = rankOf(got.size);
+    if (after !== before) setTimeout(() => toast(null, `<span class="badge" aria-hidden="true">⭐</span><div><small>Rank Up</small><b>${after}</b><span>${got.size * 100} XP earned so far</span></div>`), 900);
     const xp = document.getElementById('xp');
     xp.classList.remove('bump'); void xp.offsetWidth; xp.classList.add('bump');
     if (got.size === ACH.length) setTimeout(celebrate, 600);
@@ -563,6 +675,110 @@ dialog.ach[open] { animation: toastIn .45s cubic-bezier(.2,.9,.2,1) both; }
       if (++t < 180) requestAnimationFrame(frame); else ctx.clearRect(0, 0, innerWidth, innerHeight);
     })();
   }
+
+  /* ---------- Trivia ---------- */
+  const QS = [
+    ['Where did I intern in Summer 2026?', ['Nuveen', 'A hedge fund in New York', 'A startup in San Francisco', 'Cornell IT'], 0],
+    ['How fast does my Nuveen tool answer a question?', ['Overnight', 'Under 5 minutes', 'Under 15 seconds', 'Under 1 minute'], 2],
+    ['Which processor did I design at Cornell?', ['x86', 'RISC-V', 'ARM', 'MIPS'], 1],
+    ['What do I study?', ['Mechanical Engineering', 'Biology and Music', 'Information Science and Economics', 'Architecture'], 2],
+    ['Where am I from?', ['Boston', 'Charlotte', 'Ithaca', 'Chicago'], 3],
+  ];
+  const qBody = document.getElementById('quiz-body'), qDots = document.getElementById('quiz-dots'), qStep = document.getElementById('quiz-step');
+  let qi = 0, results = [];
+  function drawDots() { qDots.innerHTML = QS.map((_, i) => `<i class="${results[i] === true ? 'ok' : results[i] === false ? 'no' : i === qi ? 'now' : ''}"></i>`).join(''); }
+  function ask() {
+    const [q, opts, ans] = QS[qi];
+    qStep.textContent = `Question ${qi + 1} of ${QS.length}`;
+    qBody.innerHTML = `<p class="q">${q}</p><div class="opts">${opts.map((o, i) => `<button class="opt" type="button" data-i="${i}">${o}<span aria-hidden="true"></span></button>`).join('')}</div>`;
+    drawDots();
+    qBody.querySelectorAll('.opt').forEach(b => b.addEventListener('click', () => {
+      const pick = +b.dataset.i, ok = pick === ans;
+      results[qi] = ok;
+      qBody.querySelectorAll('.opt').forEach((x, i) => { x.disabled = true; if (i === ans) { x.classList.add('right'); x.lastChild.textContent = '✓'; } else if (i === pick) x.classList.add('wrong'); });
+      drawDots();
+      setTimeout(() => { qi++; qi < QS.length ? ask() : finish(); }, 900);
+    }));
+  }
+  function finish() {
+    const score = results.filter(Boolean).length;
+    qStep.textContent = 'Final Score';
+    const msg = score === 5 ? 'Perfect. You were clearly paying attention.' : score >= 3 ? 'Not bad. The answers are all on this page.' : 'Scroll up for the answers, then try again.';
+    qBody.innerHTML = `<div class="end"><p class="big-num grad">${score}/5</p><p>${msg}</p><button class="btn ghost" type="button" id="quiz-again">Play Again</button></div>`;
+    document.getElementById('quiz-again').addEventListener('click', () => { qi = 0; results = []; ask(); });
+    if (score === 5) unlock('quiz');
+  }
+  ask();
+
+  /* ---------- Bug Squash ---------- */
+  const board = document.getElementById('board'), overlay = document.getElementById('bug-overlay');
+  const scoreEl = document.getElementById('bug-score'), bestEl = document.getElementById('bug-best'), timeEl = document.getElementById('bug-time');
+  let best = 0; try { best = +localStorage.getItem('tb-bug-best') || 0; } catch {}
+  bestEl.textContent = best;
+  let score = 0, playing = false, spawnTimer = 0, endAt = 0, raf = 0;
+  const GAME_MS = 20000;
+  function spawn() {
+    if (!playing) return;
+    const elapsed = GAME_MS - (endAt - performance.now());
+    const life = Math.max(650, 1400 - elapsed / 25);
+    const bug = document.createElement('button');
+    bug.type = 'button'; bug.className = 'bug'; bug.textContent = '🐛'; bug.setAttribute('aria-label', 'Bug');
+    const w = board.clientWidth - 60, h = board.clientHeight - 60;
+    bug.style.left = (6 + Math.random() * w) + 'px'; bug.style.top = (6 + Math.random() * h) + 'px';
+    bug.style.rotate = ((Math.random() * 360) | 0) + 'deg';
+    const gone = setTimeout(() => { bug.classList.add('dying'); setTimeout(() => bug.remove(), 350); }, life);
+    bug.addEventListener('pointerdown', e => {
+      e.preventDefault(); if (!playing || bug.classList.contains('squashed')) return;
+      clearTimeout(gone); score++; scoreEl.textContent = score; bug.classList.add('squashed');
+      const plus = document.createElement('span'); plus.className = 'plus'; plus.textContent = '+1';
+      plus.style.left = bug.style.left; plus.style.top = bug.style.top; board.appendChild(plus);
+      setTimeout(() => { bug.remove(); plus.remove(); }, 700);
+    });
+    bug.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); bug.dispatchEvent(new PointerEvent('pointerdown')); } });
+    board.appendChild(bug);
+    spawnTimer = setTimeout(spawn, Math.max(380, 700 - elapsed / 40));
+  }
+  function tickTime() {
+    const left = Math.max(0, endAt - performance.now());
+    timeEl.style.transform = `scaleX(${left / GAME_MS})`;
+    if (left <= 0) return endGame();
+    raf = requestAnimationFrame(tickTime);
+  }
+  function startGame() {
+    score = 0; scoreEl.textContent = 0; playing = true; overlay.hidden = true;
+    board.querySelectorAll('.bug, .plus').forEach(n => n.remove());
+    endAt = performance.now() + GAME_MS; spawn(); tickTime();
+  }
+  function endGame() {
+    playing = false; clearTimeout(spawnTimer); cancelAnimationFrame(raf);
+    board.querySelectorAll('.bug').forEach(n => n.remove());
+    if (score > best) { best = score; bestEl.textContent = best; try { localStorage.setItem('tb-bug-best', best); } catch {} }
+    const r = document.getElementById('bug-result'); r.hidden = false; r.textContent = score;
+    document.getElementById('bug-msg').textContent = score >= 12 ? 'Bugs squashed. Ship it.' : `Bugs squashed. Hit 12 to unlock Exterminator.`;
+    document.getElementById('bug-start').textContent = 'Play Again';
+    overlay.hidden = false; timeEl.style.transform = 'scaleX(1)';
+    if (score >= 12) unlock('bugs');
+  }
+  document.getElementById('bug-start').addEventListener('click', startGame);
+
+  /* ---------- Retro mode: Konami code, or tap the copyright line five times ---------- */
+  const code = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  let pos = 0;
+  function toggleRetro() {
+    const on = document.documentElement.classList.toggle('retro');
+    unlock('retro');
+    toast(null, `<span class="badge" aria-hidden="true">🕹️</span><div><small>Cheat Activated</small><b>Retro Mode ${on ? 'On' : 'Off'}</b><span>${on ? 'Enter it again to switch back.' : 'Back to the future.'}</span></div>`);
+  }
+  addEventListener('keydown', e => {
+    const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    pos = k === code[pos] ? pos + 1 : (k === code[0] ? 1 : 0);
+    if (pos === code.length) { pos = 0; toggleRetro(); }
+  });
+  let taps = 0, tapTimer = 0;
+  document.getElementById('copyright').addEventListener('click', () => {
+    taps++; clearTimeout(tapTimer); tapTimer = setTimeout(() => { taps = 0; }, 1500);
+    if (taps >= 5) { taps = 0; toggleRetro(); }
+  });
 
   paint();
   setTimeout(() => unlock('hello-world'), 1400);
